@@ -4,14 +4,14 @@ highlighter:      pygments
 
 # Setup
 title:            YoungEun 개발 블로그
-tagline:          'A Jekyll theme'
+tagline:          'youngeun'
 description:      영은의 개발 블로그
 url:              "https://youngniw.github.io/"
 baseurl:          ""
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'YoungEun Wi'
+  url:            
 
 paginate:         5
 
@@ -19,4 +19,4 @@ paginate:         5
 version:          2.1.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/youngniw
