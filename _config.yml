@@ -2,10 +2,6 @@
 markdown:         redcarpet
 highlighter:      pygments
 
-# Permalinks
-permalink:        pretty
-relative_permalinks: true
-
 # Setup
 title:            YoungEun 개발 블로그
 tagline:          'A Jekyll theme'
