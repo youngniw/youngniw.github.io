@@ -1,25 +1,26 @@
-title:              YoungEun 개발 블로그
-#email:              your-email@example.com
-description:        영은의 개발 블로그
-author:             YoungEun Wi
-baseurl:            ""
-url:                "https://youngniw.github.io/"
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
 
-# Social Profiles
-twitter_username:  
-github_username:    youngniw
-facebook_username:  
-instagram_username:  
-linkedin_username:
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
 
-# Add your google-analytics ID here to activate google analytics
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+# Setup
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
 
-# Build settings
-markdown:           kramdown
-paginate:           5
-paginate_path:      "/posts/page:num/"
-plugins:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+author:
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/poole/hyde
