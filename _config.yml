@@ -1,14 +1,14 @@
-title:              Clean Blog
-email:              your-email@example.com
-description:        A Blog Theme by Start Bootstrap
-author:             Start Bootstrap
+title:              YoungEun 개발 블로그
+#email:              your-email@example.com
+description:        영은의 개발 블로그
+author:             YoungEun Wi
 baseurl:            ""
 url:                "https://youngniw.github.io/"
 
 # Social Profiles
 twitter_username:   SBootstrap
-github_username:    StartBootstrap
-facebook_username:  StartBootstrap
+github_username:    youngniw
+facebook_username:  
 instagram_username:  
 linkedin_username:
 
