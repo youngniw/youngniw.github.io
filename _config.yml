@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         kramdown
-highlighter:      pygments
+highlighter:      rough
 
 # Setup
 title:            YoungEun 개발 블로그
