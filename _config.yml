@@ -7,9 +7,9 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            "YoungEun 개발 블로그"
+title:            YoungEun 개발 블로그
 tagline:          'A Jekyll theme'
-description:      "영은의 개발 블로그"
+description:      영은의 개발 블로그
 url:              "https://youngniw.github.io/"
 baseurl:          ""
 
