@@ -5,7 +5,7 @@ highlighter:      pygments
 # Setup
 title:            YoungEun 개발 블로그
 tagline:          'youngeun'
-description:      영은의 개발 블로그
+description:      Created a blog on March 30, 2021
 url:              "https://youngniw.github.io/"
 baseurl:          ""
 
