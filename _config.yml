@@ -7,11 +7,11 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Hyde
+title:            "YoungEun 개발 블로그"
 tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
-baseurl:          /
+description:      "영은의 개발 블로그"
+url:              "https://youngniw.github.io/"
+baseurl:          ""
 
 author:
   name:           'Mark Otto'
