@@ -31,13 +31,10 @@ exclude:
 
 # Jekyll SEO Tag (Optional)
 # =========================
-twitter:
-  username: 
-  card: 
 logo: logo.jpg
 social:
   name: YoungEun Wi
   links:
     - https://github.com/youngniw
 google_site_verification: 
-lang: en
+lang: ko
