@@ -9,6 +9,8 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
+  
+skin: daylight
 
 paginate: 10
 
