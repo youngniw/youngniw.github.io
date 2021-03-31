@@ -1,7 +1,7 @@
 title: YoungEun 개발 블로그
 description: Created a blog on March 30, 2021.
 author: YoungEun Wi
-avatar: /logo.png
+avatar: /me.jpg
 email: 1999julie@naver.com
 
 plugins:
@@ -34,7 +34,7 @@ exclude:
 twitter:
   username: 
   card: 
-logo: logo.png
+logo: me.png
 social:
   name: YoungEun Wi
   links:
