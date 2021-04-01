@@ -323,10 +323,7 @@ ul.social-icons {
   flex: 1 0 auto;
   overflow-y: scroll;
 
-  // Hide scrollbar for IE, Edge and Firefox
-  -ms-overflow-style: none;  // IE and Edge
-  scrollbar-width: none;     // Firefox
-
+  
   padding-left: $spacing-unit;
   padding-right: $spacing-unit;
 
@@ -341,10 +338,6 @@ ul.social-icons {
   }
 }
 
-// Hide scrollbar for Chrome, Safari and Opera
-.site-main::-webkit-scrollbar {
-  display: none;
-}
 
 /**
  * Homepage
