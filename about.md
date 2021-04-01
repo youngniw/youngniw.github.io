@@ -7,4 +7,5 @@ permalink: /about/
 This site is like a kind of my notebook that explains the concept of development or writes down what I have to remember.
 <br/>
 <br/>
+<br/>
 Take your time to look around. Thank you.
