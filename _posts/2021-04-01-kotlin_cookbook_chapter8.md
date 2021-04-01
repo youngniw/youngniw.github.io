@@ -41,6 +41,7 @@ class Camera : Snappable {
 ```
 <br/>
 그리고 컨테이너인 SmartPhone클래스가 생성자에서 Phone과 Camera를 인스턴스화하고 모든 public함수를 Phone과 Camera 인스턴스에 위임하도록 정의할 수 있는데 이에 대한 코드는 다음과 같다.
+
 ```kotlin
 class SmartPhone {
     private val phone: Dialable = Phone(),
@@ -49,6 +50,7 @@ class SmartPhone {
 ```
 <br/>
 이후에 SmartPhone 클래스를 인스턴스화해서 Phone 또는 Camera의 모든 메소드를 호출할 수 있게 된다.
+
 ```kotlin
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
