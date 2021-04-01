@@ -22,9 +22,11 @@
           </footer>
         </main>
         <aside class="site-sidebar" id="site-sidebar">
-          {% if page.toc %}
-            {% include sidebar-toc.html %}
-          {% endif %}
+          <div class="side-toc">
+            {% if page.toc %}
+              {% include sidebar-toc.html %}
+            {% endif %}
+          </div>
         </aside>
       </div>
     </div>
