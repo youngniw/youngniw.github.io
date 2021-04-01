@@ -14,12 +14,11 @@ tags: 코틀린_스터디
 ### 8.1 대리자를 사용해서 합성 구현하기
 다른 클래스의 인스턴스가 포함된 클래스를 만들고 그 클래스에 연산을 위임하고 싶을 때에는 연산을 위임할 메소드가 포함된 인터페이스를 만들고, 클래스에서 해당 인터페이스를 구현한 다음, by 키워드를 사용해 바깥쪽에 래퍼 클래스를 만들면 된다.
 
-by 키워드는 포함된 객체에 있는 모든 pulic 함수를 이 객체를 담고 있는 컨테이너를 통해 노출할 수 있다.
-
+이 by 키워드는 포함된 객체에 있는 모든 public 함수를 이 객체를 담고 있는 컨테이너를 통해 노출할 수 있다.
 이때 포함된 객체에 있는 모든 public 함수를 이 객체를 담고 있는 컨테이너를 통해 노출하려면, 포함된 객체의 public 메소드의 인터페이스를 생성해야 한다.
 
-이에 대한 예제를 보면, 스마트폰 안에는 전화와 카메라 등 다양한 부속품이 있다. 이때 스마트폰에서 전화와 카메라의 기능을 사용할 수 있어야 한다. 이를 위해 스마트폰을 래퍼 객체로, 내부의 전화와 카메라 부품을 스마트폰에 포함된 객체로 대입해 생각해보자. <br/>
-Phone과 Camera 클래스는 Dialable과 Snappable 인터페이스를 구현해야 한다. 이에 대한 코드는 다음과 같다.
+예제를 보면, 스마트폰 안에는 전화와 카메라 등 다양한 부속품이 있다. 이때 스마트폰에서 전화와 카메라의 기능을 사용할 수 있어야 한다. 이를 위해 스마트폰을 래퍼 객체로, 내부의 전화와 카메라 부품을 스마트폰에 포함된 객체로 대입해 생각해보자. <br/>
+그리고 Phone과 Camera 클래스는 Dialable과 Snappable 인터페이스를 구현해야 한다. 이에 대한 코드는 다음과 같다.
 ``` kotlin
 interface Dialable {
     fun dial(number: String): String
@@ -39,8 +38,8 @@ class Camera : Snappable {
         "Taking picture..."
 }
 ```
-<br/>
-그리고 컨테이너인 SmartPhone클래스가 생성자에서 Phone과 Camera를 인스턴스화하고 모든 public함수를 Phone과 Camera 인스턴스에 위임하도록 정의할 수 있는데 이에 대한 코드는 다음과 같다.
+
+그리고 컨테이너인 SmartPhone클래스가 생성자에서 Phone과 Camera를 인스턴스화함으로써 모든 public함수를 Phone과 Camera 인스턴스에 위임하도록 정의할 수 있는데 이에 대한 코드는 다음과 같다.
 
 ```kotlin
 class SmartPhone {
@@ -48,7 +47,7 @@ class SmartPhone {
     private val camera: Snappable = Camera(),
 } : Dialable by phone, Snappable by camera          //키워드 by를 사용해서 위임
 ```
-<br/>
+
 이후에 SmartPhone 클래스를 인스턴스화해서 Phone 또는 Camera의 모든 메소드를 호출할 수 있게 된다.
 
 ```kotlin
@@ -73,17 +72,13 @@ class SmartPhoneTest {
 또한 포함된 객체 클래스의 모든 함수가 아닌 해당 인터페이스에 선언되어 있고, 이와 일치하는 함수만 컨테이너에서 사용이 가능하다.
 
 
-
 <br/><br/>
 ### 8.2 lazy 대리자 사용하기
-어떤 속성이 필요할 때까지 해당 속성의 초기화를 지연하고 싶은 경우에는 코틀린 표준 라이브러리의 lazy 대리자를 사용하자!
+어떤 속성이 필요할 때까지 해당 속성의 초기화를 지연하고 싶은 경우에는 코틀린 표준 라이브러리의 lazy 대리자를 사용하면 된다.
 
-앞에서 본 by키워드를 통해 어떤 속성의 획득자와 설정자가 대리자라고 불리는 다른 객체에서 구현되어 있다는 것을 암시할 수 있다.
-이 by키워드와 함께 lazy 대리자를 사용하기도 한다.
-
-먼저 lazy는 해당 변수에 처음 접근할 때까지 계산하지 않고, 처음 접근하게 되면 초기화를 수행한다. 이 lazy 함수의 시그니쳐는 다음과 같다.
+먼저 lazy는 해당 변수에 처음 접근할 때까지 계산하지 않고, 처음 접근하게 되면 초기화를 수행한다. 이 lazy 함수의 시그니처는 다음과 같다.
 ```kotlin
-fun <T> lazy(initializer: () -> T): Lazy<T>                 //기본 시그니쳐로, 스스로 동기화 함(lock의 인자로 아무것도 제공되지 않음)
+fun <T> lazy(initializer: () -> T): Lazy<T>         //기본 시그니쳐로, 스스로 동기화 함(lock의 인자로 아무것도 제공되지 않음)
 
 fun <T> lazy(       //lazy 인스턴스가 다수의 스레드 간에 초기화를 동기화하는 방법에 대해 명시함
     mode: LazyThreadSafetyMode, initializer: () -> T
@@ -93,7 +88,7 @@ fun <T> lazy(lock: Any?, initializer: () -> T): Lazy<T>     //동기화 락을 �
 ```
 이와 같이 lazy 대리자를 사용하려면 처음 접근이 일어날 때 값을 제한하기 위해 만들어진 초기화 람다(initializer)를 제공해야 한다.
 이때 lazy 대리자의 초기화 람다가 예외를 던지게 될 시에는 다음 번에 접근할 때 해당 값의 초기화를 다시 시도하게 된다.<br/>
-위 구현에서 lazy는 즉, 람다를 받고 해당 속성에 처음 접근할 때 제공된 람다를 실행하는 Lazy<Int> 타입의 인스턴스를 반환하는 함수이다.<br/>
+
 또한 lazy는 LazyThreadSafety타입의 인자를 갖을 수 있는데, 이 인자의 값으로는 SYNCHRONIZED, PUBLICATION, NONE으로 설정할 수 있다.
 * SYNCHRONIZED: 오직 하나의 스레드만 Lazy 인스턴스를 초기화할 수 있게 락을 사용
 * PUBCLICAION: 초기화 함수가 여러 번 호출 될 수 있지만, 첫 번째 리턴값만 사용
@@ -101,9 +96,10 @@ fun <T> lazy(lock: Any?, initializer: () -> T): Lazy<T>     //동기화 락을 �
 
 &#43; lazy 함수는 최상위 함수인 반면, 이후에 설명할 notNull함수, observable함수, vetoable 대리자들은 Delegates 인스턴스의 일부분이다.
 
+
 <br/><br/>
 ### 8.3 값이 널이 될 수 없게 만들기
-처음 접근이 일어나기 전에 값이 초기화되지 않았다면 예외를 던지고 싶은 경우에는 notNull 함수를 이용하자!
+처음 접근이 일어나기 전에 값이 초기화되지 않았을 때, 예외를 던지고 싶은 경우에는 notNull 함수를 이용한다. 
 
 속성에 처음 접근하기 전에 속성이 사용되면 예외를 던지는 대리자를 제공하는 notNull함수를 사용하여 속성 초기화를 지연시킬 수 있다. 이 함수에 대한 예제는 다음과 같다.
 ```kotlin
@@ -144,11 +140,12 @@ private class NotNullVar<T : Any>() : ReadWriteProperty<Any?, T> {      //ReadWr
 }
 ```
 notNull팩토리 메소드는 ReadWriteProperty 인터페이스를 구현하는 private 클래스인 NotNullVar를 인스턴스화한다.
-또한 NotNullVar의 setValue함수는 그저 제공된 값을 저장하는 반면에, getValue 함수는 값이 널인 지를 확인하고 널이 아닌 경우에는 그 값을 반환하고 널인 경우에는 IllegalStateException을 던진다.
+또한 NotNullVar의 setValue함수는 그저 제공된 값을 저장하는 반면에, getValue 함수는 값이 널인 지를 확인하고 엘비스 연산자를 사용하여 널이 아닌 경우에는 그 값을 반환하고 널인 경우에는 IllegalStateException을 던진다.
+
 
 <br/><br/>
 ### 8.4 observable과 vetoable 대리자 사용하기
-속성의 변경을 가로채서, 필요에 따라 변경을 거부하고 싶을 때, 변경 감지에는 observable 함수를 사용하고 변경의 적용 여부를 결정할 때는 vetoable 함수와 람다를 사용한다.
+속성의 변경을 가로채서 필요에 따라 변경을 거부하고 싶을 때, 변경 감지에는 observable 함수를 사용하고 변경의 적용 여부를 결정할 때는 vetoable 함수와 람다를 사용한다.
 
 observable 함수와 vetoable 함수의 시그니처는 다음과 같다.
 ```kotlin
@@ -175,7 +172,7 @@ var checked: Int by Delegates.vetoable(0) {prop, old, new ->
 }
 ```
 watched 변수는 값이 1로 초기화됐고 이 변수의 값이 변경될 때마다 이전 값과 새로운 값을 보여주는 내용이 출력된다.
-checked 변수는 값이 0으로 초기화됐지만 "new>=0"으로 인해 값을 0이거나 양수의 값으로만 변경이 가능하게 설정되었다. 따라서 vetoable의 람다 인자는 새로운 값(new)이 0보다 크거나 같을 때만 true를 반환한다.
+반면 checked 변수는 값이 0으로 초기화됐지만 "new>=0"으로 인해 변경 값(new)이 0이거나 양수일 때만 vetoable의 람다 인자가 true를 반환해 변경이 가능하게 설정되었다.
 
 위의 watched와 checked 변수를 테스트하는 코드는 다음과 같다.
 ```kotlin
@@ -191,13 +188,13 @@ fun `watched variable prints old and new values`() {
 fun `veto values less than zero`() {
     assertAll(
         { assertEquals(0, checked) },
-        { checked = 42;     assertEquals(42, checked) },        //checked 값을 42로 변경하는 것은 허용됨
-        { checked = -1;     assertEquals(42, checked) }         //checked 값을 -1로 변경하는 것은 거부되기에 변경되지 않음
+        { checked = 42;     assertEquals(42, checked) },  //값 변경이 허용됨
+        { checked = -1;     assertEquals(42, checked) }   //값 변경이 거부됨
     )
 }
 ```
 
-싱글톤 Delegates 객체 안에서 observable과 vetoable 함수에 대한 코드는 다음과 같다.
+이 함수들의 구현을 자세히 보면, 싱글톤 Delegates 객체 안에서 observable과 vetoable 함수에 대한 코드는 다음과 같다.
 ```kotlin
 object Delegates {      
     //이외의 함수가 있음
@@ -245,27 +242,28 @@ abstract class ObservableProperty<T>(initialValue: T) : ReadWriteProperty<Any?, 
     }
 }
 ```
-ObservableProperty 클래스는 모든 제네릭 타입 T의 속성을 저장하고 ReadWriteProperty 인터페이스를 구현한다. 따라서 이 클래스는 getValue와 setValue 함수를 제공한다. 
+ObservableProperty 클래스는 모든 제네릭 타입 T의 속성을 저장하고 ReadWriteProperty 인터페이스를 구현하기에 getValue와 setValue 함수를 제공한다.
 먼저 getValue에서는 value의 속성만을 반환한다. 반면에 setValue 함수는 현재 값을 저장한 다음 beforeChange함수를 호출함으로써 반환받은 값이 true라면 value 속성은 변경된다.
 <br/><br/>
-이렇게 ObservableProperty를 참고해서 observable함수를 이해해볼 때, observable함수는 ObservableProperty를 확장하는 객체를 만들고 제공된 onChange 람다의 작업을 수행하기 위해 afterChange함수를 오버라이드한다.
-이때 beforeChange함수는 오버라이드하지 않았기 때문에 기존의 ObservableProperty클래스에서 정의된 beforeChange함수로 인해 그저 true를 반환해 해당 속성의 업데이트를 무조건 보장한다.<br/>
-반면에 vetoable 함수도 마찬가지로 ObservableProperty를 확장하는 객체를 만들지만, beforeChange함수를 오버라이드하게 된다. 
-이 vetoable의 람다 구현은 인자로 제공되며, 람다는 반드시 해당 속성의 변경 여부를 결정할 수 있는 블리언을 리턴함으로써 함수가 정의된다.
+observable함수는 ObservableProperty를 확장하는 객체를 만들고 제공된 onChange 람다의 작업을 수행하기 위해 afterChange함수를 오버라이드한다.
+이때 beforeChange함수는 오버라이드하지 않았기 때문에 true를 반환해 해당 속성의 변경을 무조건 수행한다.<br/>
+반면에 vetoable 함수는 beforeChange함수를 오버라이드하게 된다.
+이 vetoable의 람다 구현은 인자로 제공되며, 람다는 반드시 해당 속성의 변경 여부를 결정할 수 있는 블리언을 리턴함으로써 true일 경우에는 속성 변경이 수행된다.
 
 <br/>
 cf. inline과 crossline<br/>
 &#62; inline 키워드는 컴파일러가 함수만 호출하는 완전히 새로운 객체를 생성하는 것이 아니라 <u>해당 호출 위치를 실제 소스 코드로 대체하도록 지시</u>한다.
-따라서 inline키워드를 추가한 inline 함수는 컴파일 단계에서 정적으로 코드를 포함시키기에 고차함수를 썼을 때보다 성능 상의 문제를 해결할 수 있다.
+따라서 inline키워드를 추가한 inline 함수는 컴파일 단계에서 정적으로 코드를 포함시키기에 고차함수를 썼을 때보다 성능 상의 문제를 해결할 수 있다고 한다.
 
-가끔 inline 함수는 지역 객체 또는 중첩 함수 같은 다른 컨텍스트에서 실행되어야 하는 매개변수로 전달되는 람다이다. 이렇게 '로컬이 아닌' 제어 흐름은 람다 내에서는 허용되지 않기 때문에 crossinline을 써야 하는 경우가 있다.
+가끔 inline 함수는 다른 컨텍스트에서 실행되어야 하는 매개변수로 전달되는 람다이다. 이렇게 '로컬이 아닌' 제어 흐름은 람다 내에서는 허용되지 않기 때문에 crossinline을 써야 하는 경우가 있다.
 
 &#62;crossline 키워드는 함수를 inline으로 선언했더라도 람다 함수에 return을 사용하지 못하도록 해주는 키워드이다. 
 보통 매개변수로 받아온 함수를 다시 다른 객체에 대입해야 할 때 즉, 다른 객체에서 사용하는 매개 함수를 선언할 때 사용한다. 
 
+
 <br/><br/>
 ### 8.5 대리자로서 Map 제공하기
-코틀린 맵에는 대리자가 되는데 필요한 getValue와 setValue 함수 구현이 있어서 이를 이용해 여러 값이 들어있는 맵<sup>map</sup>을 제공해 객체를 초기화할 수 있다.
+코틀린 맵에는 대리자가 되는데 필요한 getValue와 setValue 함수 구현이 있어서, 이를 이용해 여러 값이 들어있는 맵<sup>map</sup>을 제공해 객체를 초기화할 수 있다.
 
 객체 초기화에 필요한 값이 맵 안에 있다면, 해당 클래스 속성을 자동으로 맵에 위임할 수 있다.
 
@@ -295,7 +293,8 @@ fun `use map delegate for Project`() {
 이 코드가 동작하는 이유는 MutableMap에 ReadWriteProperty 대리자가 되는데 필요한 올바른 시그니처의 setValue와 getValue 확장 함수가 있기 때문이다.
 
 <u>속성을 생성자의 일부로 만들지 않고 맵을 사용하는 이유는 무엇일까?</u><br/>
-JSON을 파싱하거나 다른 동ㅇ적인 작업을 하는 애플리케이션에서 이러한 매커니즘이 발생하기 때문이다.
+JSON을 파싱하거나 다른 동적인 작업을 하는 애플리케이션에서 이러한 매커니즘이 발생하기 때문이다. 
+이에 대한 예제 코드는 다음과 같다.
 ```kotlin
 private fun getMapFromJSON() =          //JSON 문자열로 속성 맵을 가공
     GSON().fromJSON<MutableMap<String, Any?>>(
@@ -313,6 +312,7 @@ fun `create project from map parsed from JSON string`() {
     )
 }
 ```
+
 
 <br/><br/>
 ### 8.6 사용자 정의 대리자 만들기
