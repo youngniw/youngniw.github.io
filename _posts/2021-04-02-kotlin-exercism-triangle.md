@@ -22,12 +22,11 @@ tags: 코틀린_Exercism
 
 ```kotlin
 class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
-  
-  // TODO: Implement proper constructor
+	// TODO: Implement proper constructor
 
 	val isEquilateral: Boolean = TODO("Implement this getter to complete the task")
 	val isIsosceles: Boolean = TODO("Implement this getter to complete the task")
-  val isScalene: Boolean = TODO("Implement this getter to complete the task")
+  	val isScalene: Boolean = TODO("Implement this getter to complete the task")
 }
 ```
 
@@ -45,17 +44,16 @@ class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
 		
 		//예외처리
 		if (length1 <= 0 || length2 <= 0 || length3 <= 0)
-	    throw IllegalArgumentException("The length of all sides must be greater than zero.")
-	  if ((length1 + length2 < length3) || (length1 + length3 < length2) || (length2 + length3 < length1))
-	    throw IllegalArgumentException("The sum of the lengths of both sides must be greater than or equal to the length of the other side.")
+	    		throw IllegalArgumentException("The length of all sides must be greater than zero.")
+	  	if ((length1 + length2 < length3) || (length1 + length3 < length2) || (length2 + length3 < length1))
+	    		throw IllegalArgumentException("The sum of the lengths of both sides must be greater than or equal to the length of the other side.")
 	}
 	
-	
 	//정삼각형(3개의 변이 모두 같음)
-  val isEquilateral: Boolean by lazy { a==b && b==c }
-  //이등변삼각형(적어도 2개의 변이 같음)
+  	val isEquilateral: Boolean by lazy { a==b && b==c }
+  	//이등변삼각형(적어도 2개의 변이 같음)
 	val isIsosceles: Boolean by lazy { a==b || b==c || c==a }	
-  //3개의 변 모두 길이가 다름
+  	//3개의 변 모두 길이가 다름
 	val isScalene: Boolean by lazy { !isIsosceles }
 }
 ```
