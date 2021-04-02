@@ -187,7 +187,7 @@ ul.task-list {
 }
 
 /**
- * Wrapper(화면의 <body>의 header를 제외한 나머지 부분)
+ * Wrapper(화면의 <body>의 header를 제외한 나머지 부분-> content와 사이드바를 포함한 레이아웃 조절)
  */
 .wrapper {
   max-width: calc(#{$content-width} - (#{$spacing-unit}));
@@ -197,9 +197,8 @@ ul.task-list {
   padding-left: $spacing-unit / 2;
 
   @media screen and (min-width: $on-large) {
-    background-color: #00FFFF;    //*********change
     max-width: calc(#{$content-width} - (#{$spacing-unit}));    //*********change
-    padding-right: $spacing-unit;   
-    padding-left: $spacing-unit;    
+    //padding-right: $spacing-unit;   //*********change
+    //padding-left: $spacing-unit;    //*********change
   }
 }
