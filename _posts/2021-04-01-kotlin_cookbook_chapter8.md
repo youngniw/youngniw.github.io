@@ -89,7 +89,7 @@ fun <T> lazy(lock: Any?, initializer: () -> T): Lazy<T>     //동기화 락을 �
 이와 같이 lazy 대리자를 사용하려면 처음 접근이 일어날 때 값을 제한하기 위해 만들어진 초기화 람다(initializer)를 제공해야 한다.
 이때 lazy 대리자의 초기화 람다가 예외를 던지게 될 시에는 다음 번에 접근할 때 해당 값의 초기화를 다시 시도하게 된다.<br/>
 
-또한 lazy는 LazyThreadSafety타입의 인자를 갖을 수 있는데, 이 인자의 값으로는 SYNCHRONIZED, PUBLICATION, NONE으로 설정할 수 있다.
+또한 lazy는 LazyThreadSafetyMode타입의 인자를 갖을 수 있는데, 이 인자의 값으로는 SYNCHRONIZED, PUBLICATION, NONE으로 설정할 수 있다.
 * SYNCHRONIZED: 오직 하나의 스레드만 Lazy 인스턴스를 초기화할 수 있게 락을 사용
 * PUBCLICAION: 초기화 함수가 여러 번 호출 될 수 있지만, 첫 번째 리턴값만 사용
 * NONE: 락이 사용되지 않음
