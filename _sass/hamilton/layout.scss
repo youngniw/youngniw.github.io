@@ -52,11 +52,10 @@
 }
 
 .site-nav {
-  background-color: #FF0000;
   position: absolute;
   top: 12px;
   right: $spacing-unit / 2;
-  border: 1px solid;
+  border: 10px solid;                        //Change
   border-radius: 0.4em;
   text-align: right;
 
