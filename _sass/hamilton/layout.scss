@@ -180,6 +180,7 @@
  * Site body
  */
 .site-body {
+  background-color: #00FFFF   //***************
   display: grid;
   grid-template-columns: calc(#{$content-width} * 0.24) 1fr;
   overflow: hidden;
