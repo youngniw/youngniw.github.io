@@ -187,18 +187,18 @@ ul.task-list {
 }
 
 /**
- * Wrapper
+ * Wrapper(화면의 <body>의 header를 제외한 나머지 부분-> content와 사이드바를 포함한 레이아웃 조절)
  */
 .wrapper {
-  max-width: calc(#{$content-width} - (#{$spacing-unit}));
+  max-width: calc(#{$content-width});      //*********change(기존에는 "calc(#{$content-width} - (#{$spacing-unit}));")
   margin-right: auto;
   margin-left: auto;
   padding-right: $spacing-unit / 2;
   padding-left: $spacing-unit / 2;
 
   @media screen and (min-width: $on-large) {
-    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
+    max-width: calc(#{$content-width});    //*********change
+    //padding-right: $spacing-unit;   //*********change
+    //padding-left: $spacing-unit;    //*********change
   }
 }
