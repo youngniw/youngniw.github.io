@@ -55,7 +55,7 @@
   position: absolute;
   top: 12px;
   right: $spacing-unit / 2;
-  border: 10px solid;                        //Change
+  border: 1px solid;
   border-radius: 0.4em;
   text-align: right;
 
@@ -180,7 +180,6 @@
  * Site body
  */
 .site-body {
-  background-color: #669999;
   display: grid;
   grid-template-columns: calc(#{$content-width} * 0.24) 1fr;
   overflow: hidden;
