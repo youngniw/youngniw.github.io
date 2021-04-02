@@ -193,8 +193,8 @@ ul.task-list {
   max-width: calc(#{$content-width});      //*********change(기존에는 "calc(#{$content-width} - (#{$spacing-unit}));")
   margin-right: auto;
   margin-left: auto;
-  padding-right: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
+  //padding-right: $spacing-unit / 2;     //*********change
+  //padding-left: $spacing-unit / 2;      //*********change
 
   @media screen and (min-width: $on-large) {
     max-width: calc(#{$content-width});    //*********change
