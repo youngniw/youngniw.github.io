@@ -2,6 +2,7 @@
  * Site container
  */
 .site-container {
+  background-color: #886677;
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -13,7 +14,6 @@
  * Site header
  */
 .site-header {
-  background-color: #886677;
   border-top: 5px solid;
   border-bottom: 1px solid;
   min-height: $base-font-size * 3;
