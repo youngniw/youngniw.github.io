@@ -19,6 +19,7 @@ tags: 코틀린_Exercism
 <참고> 모양이 삼각형이 되려면 모든 변의 길이가 0보다 커야 하며, 두 변의 길이의 합은 세 번째 변의 길이보다 크거나 같아야 한다.
 
 주어진 코드는 다음과 같다.
+
 ```kotlin
 class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
   
@@ -29,10 +30,12 @@ class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
   val isScalene: Boolean = TODO("Implement this getter to complete the task")
 }
 ```
+
 <br/><br/><br/>
 
 ### &#91;문제 풀이&#93;<br/>
 내가 문제의 해답으로 작성한 코드는 다음과 같다.
+
 ```kotlin
 class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
 	init {
@@ -56,6 +59,7 @@ class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
 	val isScalene: Boolean by lazy { !isIsosceles }
 }
 ```
+
 클래스를 인스턴스화한 객체가 생성될 때 init 영역이나 생성자를 통해 초기화 작업을 수행할 수 있다. 이 문제에서는 이러한 초기화 작업이 필요하다.
 문제의 목적은 어떤 삼각형인지를 확인하는 것이지만, 먼저 3개의 변의 길이로 삼각형이 생성되는 지를 확인해야 하므로 init 영역을 구현하였다.
 
