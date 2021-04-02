@@ -2,7 +2,6 @@
  * Site container
  */
 .site-container {
-  background-color: #886677;
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -181,7 +180,7 @@
  * Site body
  */
 .site-body {
-  background-color: #335577;
+  background-color: #669999;
   display: grid;
   grid-template-columns: calc(#{$content-width} * 0.24) 1fr;
   overflow: hidden;
