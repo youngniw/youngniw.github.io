@@ -180,6 +180,7 @@
  * Site body
  */
 .site-body {
+  background-color: #335577;
   display: grid;
   grid-template-columns: calc(#{$content-width} * 0.24) 1fr;
   overflow: hidden;
@@ -197,7 +198,6 @@
  * Site sidebar
  */
 .site-sidebar {
-  background-color: #335577;
   padding: $spacing-unit;
   border-right: 1px solid;
   @include relative-font-size(0.8);
@@ -279,7 +279,7 @@ ul.social-icons {
 
 .toc-nav {
   max-height: 70vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   border: 1px solid;
   border-top: 0px;
   border-radius: 0 0 0.3em 0.3em;
