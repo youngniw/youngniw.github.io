@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Kotlin] Exercism Sieve 문제 설명/풀이"
+title: "[Kotlin] Exercism의 Sieve 문제 설명/풀이"
 categories: Kotlin
 tags: 코틀린_Exercism
 ---
