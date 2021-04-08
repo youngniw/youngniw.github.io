@@ -94,27 +94,27 @@ object Sieve {
 
     fun primesUpTo(upperBound: Int): List<Int> {
         var isprimeArray = Array(upperBound+1, {true})
-		var primeList = mutableListOf<Int>()
+	var primeList = mutableListOf<Int>()
 		
-		if (upperBound<2)
-			return emptyList<Int>()
-		else {
-			isprimeArray[0] = false
-			isprimeArray[1] = false
-			for (i in 2..upperBound) {
-				if (isprimeArray[i] == true){		//소수일 때만 반복
-					primeList.add(i)	//소수를 저장하는 list에 저장함
-					
-					//i의 배수들을 소수가 아니라고 설정함
-					var j = 2
-					while (i*j <= upperBound) {
-						isprimeArray[i*j] = false
-						j++
-					}
-				}
-			}
-			return primeList
-		}
+	if (upperBound<2)
+	    return emptyList<Int>()
+	else {
+	    isprimeArray[0] = false
+	    isprimeArray[1] = false
+	    for (i in 2..upperBound) {
+	        if (isprimeArray[i] == true){		//소수일 때만 반복
+		    primeList.add(i)	//소수를 저장하는 list에 저장함
+
+		    //i의 배수들을 소수가 아니라고 설정함
+		    var j = 2
+		    while (i*j <= upperBound) {
+		        isprimeArray[i*j] = false
+		        j++
+		    }
+	        }
+	    }
+	    return primeList
+	}
     }
 }
 ```
