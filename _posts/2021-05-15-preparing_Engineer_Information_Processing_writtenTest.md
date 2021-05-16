@@ -26,7 +26,15 @@ tags: 정처기
 
 <u>아래의 사진들은 제가 필기시험을 대비하기 위해 정리한 요약노트입니다.</u>
 - Chapter 1. 소프트웨어 설계
-
+ ![chapter1-1](./image/engineer_information_processing_test/eipTest_chapter1_1.jpg)
+ ![chapter1-2](./image/engineer_information_processing_test/eipTest_chapter1_2.jpg)
+ ![chapter1-3](./image/engineer_information_processing_test/eipTest_chapter1_3.jpg)
+ ![chapter1-4](./image/engineer_information_processing_test/eipTest_chapter1_4.jpg)
+ ![chapter1-5](./image/engineer_information_processing_test/eipTest_chapter1_5.jpg)
+ ![chapter1-6](./image/engineer_information_processing_test/eipTest_chapter1_6.jpg)
+ ![chapter1-7](./image/engineer_information_processing_test/eipTest_chapter1_7.jpg)
+ ![chapter1-8](./image/engineer_information_processing_test/eipTest_chapter1_8.jpg)
+ 
 - Chapter 2. 소프트웨어 개발
 
 - Chapter 3. 데이터베이스 구축
