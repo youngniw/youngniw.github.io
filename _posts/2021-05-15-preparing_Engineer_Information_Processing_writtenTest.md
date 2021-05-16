@@ -10,15 +10,15 @@ tags: 정처기
 ### 정처기 필기 준비 과정
 어제인 2021년 5월 15일에는 <b>2021년 정보처리기사 2회 필기 시험</b>이 시행되었습니다.<br/>
 
-전공자임에도 불구하고 처음 정보처리기사 시험을 보는 탓에 어떻게 필기 시험을 준비해야할 지 매우 막막했었습니다. 
+전공자임에도 불구하고 처음 정보처리기사 시험을 보는 탓에 어떻게 필기시험을 준비해야 할지 매우 막막했었습니다. 
 
 저는 수제비 2021 정보처리기사 필기 책을 사서 공부를 해봤는데요, <br/>
 대학교 강의를 통해 배운 내용도 많았지만, 모르는 내용 또한 많았습니다. 
 
-따라서 필기 시험을 보기 전에 3회독 이상은 하고 가자는 생각으로 필기 시험 공부기간을 5주 정도로 잡았습니다.<br/>
+따라서 필기시험을 보기 전에 3회독 이상은 하고 가자는 생각으로 필기시험 공부기간을 5주 정도로 잡았습니다.<br/>
 필기인데 5주는 너무 긴 시간이 아닌가라는 생각을 할 수도 있지만, 전공자이기 때문에 하나라도 더 많은 전공 지식을 쌓는 것이 중요하다고 생각했기 때문에 오래 기억하기 위해 오랜 시간을 준비했습니다. <br/>
 
-4월 둘째주에 시작해서 2주간은 책의 개념 뒤에 있는 기출문제는 풀지 않고 오로지 이론 부분만 꼼꼼히 외웠습니다. 이때 노트에 단원들의 각 챕터마다 요약노트를 작성하였습니다.<br/>
+4월 둘째 주에 시작해서 2주간은 책의 개념 뒤에 있는 기출문제는 풀지 않고 오로지 이론 부분만 꼼꼼히 외웠습니다. 이때 노트에 단원들의 각 챕터마다 요약노트를 작성하였습니다.<br/>
 그리고 2주간은 하루에 챕터 2개씩, 전날에 다음날 공부할 이론에 해당하는 요약노트 부분을 외우고 그 다음날에 책의 이론 부분을 읽으면서 공부하고 기출 문제를 풀었습니다.<br/>
 이렇게 한달(4주)을 공부하니 자세하지는 않지만 전체적인 내용을 이해하고 설명할 수 있는 수준까지 암기가 되었습니다. <br/>
 시험 주에는 하루에 한 단원씩 공부하며 수제비 책의 단원종합문제와 기출문제 모음을 풀었더니, 시험 전날에는 어떤 부분에는 어떤 내용이 적혀있는 지 알 수 있는 정도가 되었습니다. <br/>
@@ -37,39 +37,39 @@ tags: 정처기
  
 - Chapter 2. 소프트웨어 개발<br/>
  ![chapter2-1](/image/engineer_information_processing_test/eipTest_chapter2_1.jpg){: width="300" height="350"}
- ![chapter2-2](/image/engineer_information_processing_test/eipTest_chapter2_2.jpg)
- ![chapter2-3](/image/engineer_information_processing_test/eipTest_chapter2_3.jpg)
- ![chapter2-4](/image/engineer_information_processing_test/eipTest_chapter2_4.jpg)
- ![chapter2-5](/image/engineer_information_processing_test/eipTest_chapter2_5.jpg)
- ![chapter2-6](/image/engineer_information_processing_test/eipTest_chapter2_6.jpg)
- ![chapter2-7](/image/engineer_information_processing_test/eipTest_chapter2_7.jpg)
- ![chapter2-8](/image/engineer_information_processing_test/eipTest_chapter2_8.jpg)
- ![chapter2-8](/image/engineer_information_processing_test/eipTest_chapter2_9.jpg)
+ ![chapter2-2](/image/engineer_information_processing_test/eipTest_chapter2_2.jpg){: width="300" height="350"}
+ ![chapter2-3](/image/engineer_information_processing_test/eipTest_chapter2_3.jpg){: width="300" height="350"}
+ ![chapter2-4](/image/engineer_information_processing_test/eipTest_chapter2_4.jpg){: width="300" height="350"}
+ ![chapter2-5](/image/engineer_information_processing_test/eipTest_chapter2_5.jpg){: width="300" height="350"}
+ ![chapter2-6](/image/engineer_information_processing_test/eipTest_chapter2_6.jpg){: width="300" height="350"}
+ ![chapter2-7](/image/engineer_information_processing_test/eipTest_chapter2_7.jpg){: width="300" height="350"}
+ ![chapter2-8](/image/engineer_information_processing_test/eipTest_chapter2_8.jpg){: width="300" height="350"}
+ ![chapter2-8](/image/engineer_information_processing_test/eipTest_chapter2_9.jpg){: width="300" height="350"}
 
 - Chapter 3. 데이터베이스 구축<br/>
  ![chapter3-1](/image/engineer_information_processing_test/eipTest_chapter3_1.jpg){: width="300" height="350"}
- ![chapter3-2](/image/engineer_information_processing_test/eipTest_chapter3_2.jpg)
- ![chapter3-3](/image/engineer_information_processing_test/eipTest_chapter3_3.jpg)
- ![chapter3-4](/image/engineer_information_processing_test/eipTest_chapter3_4.jpg)
- ![chapter3-5](/image/engineer_information_processing_test/eipTest_chapter3_5.jpg)
- ![chapter3-6](/image/engineer_information_processing_test/eipTest_chapter3_6.jpg)
+ ![chapter3-2](/image/engineer_information_processing_test/eipTest_chapter3_2.jpg){: width="300" height="350"}
+ ![chapter3-3](/image/engineer_information_processing_test/eipTest_chapter3_3.jpg){: width="300" height="350"}
+ ![chapter3-4](/image/engineer_information_processing_test/eipTest_chapter3_4.jpg){: width="300" height="350"}
+ ![chapter3-5](/image/engineer_information_processing_test/eipTest_chapter3_5.jpg){: width="300" height="350"}
+ ![chapter3-6](/image/engineer_information_processing_test/eipTest_chapter3_6.jpg){: width="300" height="350"}
  
 - Chapter 4. 프로그래밍 언어 활용<br/>
  ![chapter4-1](/image/engineer_information_processing_test/eipTest_chapter4_1.jpg){: width="300" height="350"}
- ![chapter4-2](/image/engineer_information_processing_test/eipTest_chapter4_2.jpg)
- ![chapter4-3](/image/engineer_information_processing_test/eipTest_chapter4_3.jpg)
- ![chapter4-4](/image/engineer_information_processing_test/eipTest_chapter4_4.jpg)
- ![chapter4-5](/image/engineer_information_processing_test/eipTest_chapter4_5.jpg)
- ![chapter4-6](/image/engineer_information_processing_test/eipTest_chapter4_6.jpg)
+ ![chapter4-2](/image/engineer_information_processing_test/eipTest_chapter4_2.jpg){: width="300" height="350"}
+ ![chapter4-3](/image/engineer_information_processing_test/eipTest_chapter4_3.jpg){: width="300" height="350"}
+ ![chapter4-4](/image/engineer_information_processing_test/eipTest_chapter4_4.jpg){: width="300" height="350"}
+ ![chapter4-5](/image/engineer_information_processing_test/eipTest_chapter4_5.jpg){: width="300" height="350"}
+ ![chapter4-6](/image/engineer_information_processing_test/eipTest_chapter4_6.jpg){: width="300" height="350"}
 
 - Chapter 5. 정보시스템 구축관리<br/>
  ![chapter5-1](/image/engineer_information_processing_test/eipTest_chapter5_1.jpg){: width="300" height="350"}
- ![chapter5-2](/image/engineer_information_processing_test/eipTest_chapter5_2.jpg)
- ![chapter5-3](/image/engineer_information_processing_test/eipTest_chapter5_3.jpg)
- ![chapter5-4](/image/engineer_information_processing_test/eipTest_chapter5_4.jpg)
- ![chapter5-5](/image/engineer_information_processing_test/eipTest_chapter5_5.jpg)
- ![chapter5-6](/image/engineer_information_processing_test/eipTest_chapter5_6.jpg)
- ![chapter5-7](/image/engineer_information_processing_test/eipTest_chapter5_7.jpg)
+ ![chapter5-2](/image/engineer_information_processing_test/eipTest_chapter5_2.jpg){: width="300" height="350"}
+ ![chapter5-3](/image/engineer_information_processing_test/eipTest_chapter5_3.jpg){: width="300" height="350"}
+ ![chapter5-4](/image/engineer_information_processing_test/eipTest_chapter5_4.jpg){: width="300" height="350"}
+ ![chapter5-5](/image/engineer_information_processing_test/eipTest_chapter5_5.jpg){: width="300" height="350"}
+ ![chapter5-6](/image/engineer_information_processing_test/eipTest_chapter5_6.jpg){: width="300" height="350"}
+ ![chapter5-7](/image/engineer_information_processing_test/eipTest_chapter5_7.jpg){: width="300" height="350"}
 
 
 <br/><br/>
@@ -77,7 +77,7 @@ tags: 정처기
 <br/><br/>
 
 ### 정처기 필기 시험 후기
-정처기 시험을 보러가기 전까지만 해도 정말 자신만만하게 만점을 받을 수 있겠다고 생각했었습니다. 하지만 시험 문제를 보니 책에 나오지 않는 내용도 있어서 헷갈리기도 했었습니다.<br/>
+정처기 시험을 보러 가기 전까지만 해도 정말 자신만만하게 만점을 받을 수 있겠다고 생각했었습니다. 하지만 시험 문제를 보니 책에 나오지 않는 내용도 있어서 헷갈리기도 했었습니다.<br/>
 
 이 내용의 구성요소 중 틀린 것은 무엇인가?와 같은 문제 형식이 아닌 개념을 문제로 주며 어떤 개념인 지를 답으로 찍는 문제들이 많이 나왔습니다.
 정말 열심히 꼼꼼하게 시험을 준비하지 않았다면 많이 헷갈렸을 것 같다는 생각이 들었습니다. 
