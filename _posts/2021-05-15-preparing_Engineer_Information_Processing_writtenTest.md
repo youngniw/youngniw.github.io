@@ -25,24 +25,51 @@ tags: 정처기
 시험 당일에는 시험이 오전 9시였기 때문에 다 훑어보지는 못하고 제가 요약노트에 별표친 부분만 읽고 시험을 보았습니다.<br/>
 
 <u>아래의 사진들은 제가 필기시험을 대비하기 위해 정리한 요약노트입니다.</u>
-- Chapter 1. 소프트웨어 설계
- ![chapter1-1](/image/engineer_information_processing_test/eipTest_chapter1_1.jpg){: width="200" height="300"}
- ![chapter1-2](./image/engineer_information_processing_test/eipTest_chapter1_2.jpg)
- ![chapter1-3](./image/engineer_information_processing_test/eipTest_chapter1_3.jpg)
- ![chapter1-4](./image/engineer_information_processing_test/eipTest_chapter1_4.jpg)
- ![chapter1-5](./image/engineer_information_processing_test/eipTest_chapter1_5.jpg)
- ![chapter1-6](./image/engineer_information_processing_test/eipTest_chapter1_6.jpg)
- ![chapter1-7](./image/engineer_information_processing_test/eipTest_chapter1_7.jpg)
- ![chapter1-8](./image/engineer_information_processing_test/eipTest_chapter1_8.jpg)
+- Chapter 1. 소프트웨어 설계<br/>
+ ![chapter1-1](/image/engineer_information_processing_test/eipTest_chapter1_1.jpg){: width="300" height="350"}
+ ![chapter1-2](/image/engineer_information_processing_test/eipTest_chapter1_2.jpg){: width="300" height="350"}
+ ![chapter1-3](/image/engineer_information_processing_test/eipTest_chapter1_3.jpg){: width="300" height="350"}
+ ![chapter1-4](/image/engineer_information_processing_test/eipTest_chapter1_4.jpg){: width="300" height="350"}
+ ![chapter1-5](/image/engineer_information_processing_test/eipTest_chapter1_5.jpg){: width="300" height="350"}
+ ![chapter1-6](/image/engineer_information_processing_test/eipTest_chapter1_6.jpg){: width="300" height="350"}
+ ![chapter1-7](/image/engineer_information_processing_test/eipTest_chapter1_7.jpg){: width="300" height="350"}
+ ![chapter1-8](/image/engineer_information_processing_test/eipTest_chapter1_8.jpg){: width="300" height="350"}
  
-- Chapter 2. 소프트웨어 개발
+- Chapter 2. 소프트웨어 개발<br/>
+ ![chapter2-1](/image/engineer_information_processing_test/eipTest_chapter2_1.jpg){: width="300" height="350"}
+ ![chapter2-2](/image/engineer_information_processing_test/eipTest_chapter2_2.jpg)
+ ![chapter2-3](/image/engineer_information_processing_test/eipTest_chapter2_3.jpg)
+ ![chapter2-4](/image/engineer_information_processing_test/eipTest_chapter2_4.jpg)
+ ![chapter2-5](/image/engineer_information_processing_test/eipTest_chapter2_5.jpg)
+ ![chapter2-6](/image/engineer_information_processing_test/eipTest_chapter2_6.jpg)
+ ![chapter2-7](/image/engineer_information_processing_test/eipTest_chapter2_7.jpg)
+ ![chapter2-8](/image/engineer_information_processing_test/eipTest_chapter2_8.jpg)
+ ![chapter2-8](/image/engineer_information_processing_test/eipTest_chapter2_9.jpg)
 
-- Chapter 3. 데이터베이스 구축
+- Chapter 3. 데이터베이스 구축<br/>
+ ![chapter3-1](/image/engineer_information_processing_test/eipTest_chapter3_1.jpg){: width="300" height="350"}
+ ![chapter3-2](/image/engineer_information_processing_test/eipTest_chapter3_2.jpg)
+ ![chapter3-3](/image/engineer_information_processing_test/eipTest_chapter3_3.jpg)
+ ![chapter3-4](/image/engineer_information_processing_test/eipTest_chapter3_4.jpg)
+ ![chapter3-5](/image/engineer_information_processing_test/eipTest_chapter3_5.jpg)
+ ![chapter3-6](/image/engineer_information_processing_test/eipTest_chapter3_6.jpg)
+ 
+- Chapter 4. 프로그래밍 언어 활용<br/>
+ ![chapter4-1](/image/engineer_information_processing_test/eipTest_chapter4_1.jpg){: width="300" height="350"}
+ ![chapter4-2](/image/engineer_information_processing_test/eipTest_chapter4_2.jpg)
+ ![chapter4-3](/image/engineer_information_processing_test/eipTest_chapter4_3.jpg)
+ ![chapter4-4](/image/engineer_information_processing_test/eipTest_chapter4_4.jpg)
+ ![chapter4-5](/image/engineer_information_processing_test/eipTest_chapter4_5.jpg)
+ ![chapter4-6](/image/engineer_information_processing_test/eipTest_chapter4_6.jpg)
 
-- Chapter 4. 프로그래밍 언어 활용
-
-- Chapter 5. 정보시스템 구축관리
-
+- Chapter 5. 정보시스템 구축관리<br/>
+ ![chapter5-1](/image/engineer_information_processing_test/eipTest_chapter5_1.jpg){: width="300" height="350"}
+ ![chapter5-2](/image/engineer_information_processing_test/eipTest_chapter5_2.jpg)
+ ![chapter5-3](/image/engineer_information_processing_test/eipTest_chapter5_3.jpg)
+ ![chapter5-4](/image/engineer_information_processing_test/eipTest_chapter5_4.jpg)
+ ![chapter5-5](/image/engineer_information_processing_test/eipTest_chapter5_5.jpg)
+ ![chapter5-6](/image/engineer_information_processing_test/eipTest_chapter5_6.jpg)
+ ![chapter5-7](/image/engineer_information_processing_test/eipTest_chapter5_7.jpg)
 
 
 <br/><br/>
