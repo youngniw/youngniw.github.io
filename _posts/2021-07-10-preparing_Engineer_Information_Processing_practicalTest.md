@@ -11,7 +11,7 @@ tags: 정처기
 ### 정처기 실기 준비 과정
 2021년 7월 10일에는 <b>2021년 정보처리기사 2회 실기 시험</b>이 시행되었습니다.<br/>
 
-정처기 2회 필기시험이 어려웠기 때문에, 이번 실기 시험 준비를 꼼꼼히 해야겠다는 생각을 했습니다.  
+정처기 2회 필기시험이 어려웠기 때문에, 이번 실기 시험 준비를 꼼꼼히 해야겠다는 생각을 했습니다.
 
 저는 수제비 2021 정보처리기사 실기 책을 사서 공부를 해봤는데요, <br/>
 필기 공부를 열심히 한 덕분에 실기 공부는 필기 공부를 했을 때보다 수월히 했던 것 같습니다.
@@ -28,21 +28,21 @@ tags: 정처기
 
 <u>아래의 사진들은 제가 실기시험을 대비하기 위해 정리한 요약노트입니다.</u>
 - Chapter 1~12<br/>
- ![image1](/image/engineer_information_processing_test_practical/20210715_114119.jpg){: width="300" height="350"}
- ![image2](/image/engineer_information_processing_test_practical/20210715_114143.jpg){: width="300" height="350"}
- ![image3](/image/engineer_information_processing_test_practical/20210715_114151.jpg){: width="300" height="350"}
- ![image4](/image/engineer_information_processing_test_practical/20210715_114221.jpg){: width="300" height="350"}
- ![image5](/image/engineer_information_processing_test_practical/20210715_114231.jpg){: width="300" height="350"}
- ![image6](/image/engineer_information_processing_test_practical/20210715_114253.jpg){: width="300" height="350"}
- ![image7](/image/engineer_information_processing_test_practical/20210715_114309.jpg){: width="300" height="350"}
- ![image8](/image/engineer_information_processing_test_practical/20210715_114324.jpg){: width="300" height="350"}
- ![image9](/image/engineer_information_processing_test_practical/20210715_114332.jpg){: width="300" height="350"}
- ![image10](/image/engineer_information_processing_test_practical/20210715_114343.jpg){: width="300" height="350"}
- ![image11](/image/engineer_information_processing_test_practical/20210715_114350.jpg){: width="300" height="350"}
- ![image12](/image/engineer_information_processing_test_practical/20210715_114405.jpg){: width="300" height="350"}
- ![image13](/image/engineer_information_processing_test_practical/20210715_114418.jpg){: width="300" height="350"}
- ![image14](/image/engineer_information_processing_test_practical/20210715_114426.jpg){: width="300" height="350"}
- ![image15](/image/engineer_information_processing_test_practical/20210715_114433.jpg){: width="300" height="350"}
+![image1](/image/engineer_information_processing_test_practical/20210715_114119.jpg){: width="300" height="350"}
+![image2](/image/engineer_information_processing_test_practical/20210715_114143.jpg){: width="300" height="350"}
+![image3](/image/engineer_information_processing_test_practical/20210715_114151.jpg){: width="300" height="350"}
+![image4](/image/engineer_information_processing_test_practical/20210715_114221.jpg){: width="300" height="350"}
+![image5](/image/engineer_information_processing_test_practical/20210715_114231.jpg){: width="300" height="350"}
+![image6](/image/engineer_information_processing_test_practical/20210715_114253.jpg){: width="300" height="350"}
+![image7](/image/engineer_information_processing_test_practical/20210715_114309.jpg){: width="300" height="350"}
+![image8](/image/engineer_information_processing_test_practical/20210715_114324.jpg){: width="300" height="350"}
+![image9](/image/engineer_information_processing_test_practical/20210715_114332.jpg){: width="300" height="350"}
+![image10](/image/engineer_information_processing_test_practical/20210715_114343.jpg){: width="300" height="350"}
+![image11](/image/engineer_information_processing_test_practical/20210715_114350.jpg){: width="300" height="350"}
+![image12](/image/engineer_information_processing_test_practical/20210715_114405.jpg){: width="300" height="350"}
+![image13](/image/engineer_information_processing_test_practical/20210715_114418.jpg){: width="300" height="350"}
+![image14](/image/engineer_information_processing_test_practical/20210715_114426.jpg){: width="300" height="350"}
+![image15](/image/engineer_information_processing_test_practical/20210715_114433.jpg){: width="300" height="350"}
 
 
 <br/><br/>
