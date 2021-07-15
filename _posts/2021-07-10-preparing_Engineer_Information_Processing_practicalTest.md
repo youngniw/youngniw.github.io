@@ -1,5 +1,6 @@
 ---
 layout: post
+toc: true
 title: "[정보처리기사] 정처기 실기시험 준비 및 후기"
 categories: 정보처리기사
 tags: 정처기
