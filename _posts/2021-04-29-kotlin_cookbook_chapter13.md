@@ -26,7 +26,7 @@ suspend fun <T> withContext(
 
 <u>withContext는 주어진 코루틴 컨텍스트와 함께 명시한 일시정지 블록을 호출하고, 완료될 때까지 일시정지한 후에 그 결과를 리턴한다.</u> 따라서 실제로 async와 바로 다음에 존재하는 await의 조을 대체하기 위해 사용되기도 한다.
 
-다음은 async와 await의 조함을 사용한 코루틴과 withContext를 사용한 코루틴에 대한 예제이다.
+다음은 async와 await의 조함을 사용한 코루틴과 withContext를 사용한 코루틴에 대한 예제이다.<br/>
 (예제 13-5: async와 await를 withContext로 대체하기)
 
 ```kotlin
@@ -85,7 +85,7 @@ cf. 실제로 인텔리제이 IDEA가 async/await를 사용한 코드가 있는 
     <li>Unconfined 디스패처는 일반적으로 애플리케이션 코드에서 사용해서는 안된다.</li>
 </ul>
 
-다음은 기본과 IO 디스패처를 사용한 예시이다.
+다음은 기본과 IO 디스패처를 사용한 예시이다.<br/>
 (예제 13-6: 기본 디스패처와 I/O 디스패처 사용하기)
 
 ```kotlin
