@@ -216,7 +216,7 @@ void insert_edge(GraphType* g, int u, int v)
 - 너비 우선 탐색(BFS: breadth first searching)
 
 <img src="https://ww.namu.la/s/1fe9246903b78fae07577b243a0b22791e02cb39640d5cbaae10d9849343b4ea6f162a9a677a5892fbf7819abd4ef7221ebd3608849cfb66793411fb5e6439513f37d6ea76d434184fa2b423684201bc638b3eec75c11effe1e5ad2ac4a7deb2" width="350" height="200"/>
-[참고: 나무위키]
+<span style="color:grey">[참고: 나무위키]</span>
 
 <b>깊이 우선 탐색:</b> 트리 탐색 시, 시작 정점에서 한 방향으로 계속 가다가 더 이상 갈 수 없게 되면 다시 가장 가까운 갈림길로 돌아와서 다른 방향으로 다시 탐색을 진행하는 방법과 유사함
 
@@ -227,7 +227,7 @@ void insert_edge(GraphType* g, int u, int v)
 
 ## 10.5 깊이 우선 탐색
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Depthfirst.png/375px-Depthfirst.png" width="180" height="180"/>
-[참고: 위키백과]
+<span style="color:grey">[참고: 위키백과]</span>
 
 깊이 우선 탐색 진행 순서
 1. 그래프의 시작 정점에서 출발하여 시작 정점 v을 방문하였다고 표시함
