@@ -226,8 +226,7 @@ void insert_edge(GraphType* g, int u, int v)
 <hr/>
 
 ## 10.5 깊이 우선 탐색
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Depthfirst.png/375px-Depthfirst.png" width="180" height="180"/><br/>
-<span style="color:grey">[참고: 위키백과]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159255580-2f769548-56da-4fbf-b642-cf3458964fe5.png" width="180" height="180"/>
 
 깊이 우선 탐색 진행 순서
 1. 그래프의 시작 정점에서 출발하여 시작 정점 v을 방문하였다고 표시함
@@ -272,6 +271,8 @@ DFS-iterative(G, v):
 <hr/>
 
 ## 10.6 너비 우선 탐색
+<img src="https://user-images.githubusercontent.com/78736070/159255762-e5856ede-53d7-4126-9182-fced2cede704.png" width="200" height="150"/>
+
 <b>너비 우선 탐색(BFS):</b> 시작 정점으로부터 가까운 정점을 먼저 방문하고 멀리 떨어져 있는 정점을 나중에 방문하는 순회 방법
 
 BFS를 위해서는 자료 구조인 큐<sup>queue</sup>가 필요하다.
@@ -346,8 +347,7 @@ Kruskal의 알고리즘은 탐욕적인 방법으로,<br/>
 2. 정렬된 간선들의 리스트에서 사이클을 형성하지 않는 간선을 찾아서 현재의 최소 비용 신장 트리의 집합에 추가<br/>
 2-1. 만약 사이클을 형성하면 그 간선은 제외된다.
 
-<img src="https://gmlwjd9405.github.io/images/algorithm-mst/kruskal-example2.png" height="400"/><br/>
-<span style="color:grey">[참고: gmlwjd9405님의 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159276013-f195eef3-ee3d-416c-bad1-5264339d7aaf.png" height="400"/>
 
 다음은 최소 비용 신장 트리를 구하는 Kruskal의 알고리즘을 수도 코드로 표현한 것이다.
 ```
@@ -441,8 +441,7 @@ Kruskal 알고리즘의 시간 복잡도: (|e|log<sub>2</sub>|e|)
 2. 1단계에서 만들어진 신장 트리 집합에, 인접한 정점들 중에서 최저 간선으로 연결된 정점을 선택하여 트리를 확장 <br/>
 (트리가 n-1개의 간선을 가질 때까지 반복)
 
-<img src="https://gmlwjd9405.github.io/images/algorithm-mst/prim-example.png" height="400"/><br/>
-<span style="color:grey">[참고: gmlwjd9405님의 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159276309-bf333669-2a88-41b9-88bf-c86889c09f43.png" height="300"/>
 
 <b>Kruskal 알고리즘과의 비교</b>
 - Kruskal의 알고리즘은 간선을 기반으로 하는 알고리즘, 이전 단계와 상관없이 무조건 최저 간선만을 선택
@@ -535,8 +534,7 @@ distance[w] = min(distance[w], distance[u]+weight[u][w])
 
 (위의 2와 3단계를 S가 n개의 정점을 가질 때까지 반복)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif" width="250" height="200"/><br/>
-<span style="color:grey">[참고: 위키백과]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159287026-a27a613d-7c06-4b47-aa53-7ead8529fe68.png" height="400"/>
 
 다음은 최단 거리 알고리즘을 구하는 다익스트라의 알고리즘을 의사 코드로 정리한 것이다.
 ```
@@ -626,8 +624,7 @@ void shortest_path(GraphType* g, int start) {
 
 <b>연습 문제 및 풀이</b>
 
-<img src="https://user-images.githubusercontent.com/78736070/159106029-45561553-74ff-4fba-bce6-feffd2d5e320.png" width="600" height="400"/><br/>
-<span style="color:grey">[참고: reakwon님 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159276909-f12b589e-bbe5-43f9-b525-c63ca2e63231.png" height="300"/>
 
 다음은 최단 경로 알고리즘을 구하는 다익스트라의 알고리즘을 의사 코드로 정리한 것이다.
 ```
@@ -674,8 +671,7 @@ Floyd 알고리즘의 시간 복잡도: O(n<sup>3</sup>)
 2. 선택된 정점과 해당 정점과 부착된 모든 간선을 삭제
 3. 진입 차수가 0인 정점의 선택과 삭제 과정을 반복해서 모든 정점이 선택/삭제되면 알고리즘 종료
 
-<img src="https://gmlwjd9405.github.io/images/algorithm-topological-sort/topological-sort-example.png" width="600"/><br/>
-<span style="color:grey">[참고: gmlwjd9405님 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159277254-88a278d3-d8e5-4892-bbb3-71fb6c42537a.png" height="300"/>
 
 다음은 위상 정렬 알고리즘을 의사 코드로 정리한 것이다.
 ```
