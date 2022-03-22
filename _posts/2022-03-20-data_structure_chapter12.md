@@ -1,0 +1,684 @@
+---
+layout: post
+toc: true
+title: "[자료구조] 12. 정렬"
+categories: 자료구조
+tags: 자료구조, 정렬
+---
+
+# &#91;C언어로 쉽게 풀어쓴 자료구조&#93; Chapter 12. 정렬
+
+## 0. 들어가기에 앞서..
+현재 이 포스트는 생능출판의 "C언어로 쉽게 풀어쓴 자료구조(개정3판)"에 대한 내용을 바탕으로 작성하였습니다. 
+
+이전 포스트 그래프 이후에 정렬도 기억해야 하는 부분이 꽤 있다고 생각해서 정렬을 주제로 한 포스트를 작성하게 되었다.
+
+<br/>
+<hr/>
+
+## 12.1 정렬이란?
+<b>정렬(sorting)</b>: 물건을 크기순으로 오름차순<sup>ascending order</sup>이나 내림차순<sup>descending order</sup>으로 나열하는 것
+
+지금까지 개발된 정렬 알고리즘은 매우 많다. 
+보통 정렬 알고리즘을 평가하는 효율성의 기준으로는 정렬을 위해 필요한 비교 연산의 횟수와 이동 연산의 횟수이다.
+이들 횟수를 정확하게 구하기는 힘들기 때문에 횟수를 <u>빅오 표기법</u>을 이용하여 근사적으로 표현한다.
+
+정렬 알고리즘은 크게 2가지로 나누어진다.
+- 단순하지만 비효율적인 방법: 선택 정렬, 삽입 정렬, 버블 정렬 등
+- 복잡하지만 효율적인 방법: 합병 정렬, 퀵 정렬, 히프 정렬, 기수 정렬 등
+
+또한 정렬 알고리즘을 <b>안정성</b>의 측면에서 분류할 수 있다.
+
+<b>안정성<sup>stability</sup>:</b> 입력 데이터에 동일한 키값을 갖는 레코드가 여러 개 존재할 경우, 이들 레코드들의 상대적인 위치가 정렬 후에도 바뀌지 않음을 뜻한다.
+- 안정성을 충족하는 알고리즘: 삽입 정렬, 버블 정렬, 합병 정렬 등
+
+이 포스트에서는 내부 정렬만을 다루는데, 위의 정렬들에 대해 알아보자.<br/>
+이때 정렬의 대상이 되는 것은 숫자 필드만 가지고 있는 레코드라고 가정한다.
+
+<br/>
+<hr/>
+
+## 12.2 선택 정렬
+<h4>[ 선택 정렬의 원리 ]</h4>
+
+<b>선택 정렬 방법</b>
+
+<span style="color:grey">(환경) 왼쪽 리스트: 정렬이 완료된 숫자를 포함, 오른쪽 리스트: 정렬되지 않은 숫자를 포함</span>
+
+1. 초기 상태에는 왼쪽 리스트는 비어 있고 정렬되어야 할 숫자들은 모두 오른족에 들어 있음
+2. 오른쪽 리스트에서 가장 작은 숫자를 선택해 왼쪽 리스트로 이동
+3. 오른족 리스트가 공백상태가 될 때까지 단계2를 되풀이함
+
+위의 방법을 배열로 구현한다면 2개의 똑같은 크기의 배열이 있어야 한다.
+
+따라서 추가적인 공간을 사용하지 않는 선택 정렬 알고리즘을 생각해볼 때,<br/>
+<b>제자리 정렬:</b> 입력 배열 이외에는 다른 추가 메모리를 요구하지 않는 정렬 방법<br/>
+을 사용해보면 순서는 다음과 같다.
+
+<b>[제자리 정렬]을 이용한 선택 정렬 방법</b>
+1. 초기 상태에는 정렬되지 않은 배열임
+2. <mark>정렬되지 않은 부분의 최소값을 정렬된 부분의 다음 자리와 교환함</mark><br/>
+-> 정렬 처음에는 배열의 모든 요소 중 최소값을 찾아 배열의 첫번째 요소와 그 값을 교환함
+3. 배열의 모든 부분이 정렬될 때까지 단계2를 <span style="color:blue">(숫자 개수-1)</span>번 반복함
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif" height="300"/><br/>
+<span style="color:grey">[참고: 위키백과]</span>
+<br/><br/>
+
+
+<h4>[ 선택 정렬 알고리즘 ]</h4>
+
+다음은 선택 정렬 알고리즘을 의사 코드로 표현한 것이다.
+```
+selection_sort(A, n):
+    for i<-0 to n-2 do
+        least <- A[i], A[i+1], ... , A[n-1] 중에서 가장 작은 값의 인덱스;
+        A[i]와 A[least]의 교환;
+        i++;
+```
+
+다음은 위의 의사 코드를 C언어로 구현한 것이다. <br/>
+레코드와 레코드를 서로 교환하기 위해 SWAP 매크로를 사용한다.
+```c
+#define SWAP(x, y, t) ( (t)=(x), (x)=(y), (y)=(t) )
+
+void selection_sort(int list[], int n) {
+    int i, j, least, temp;
+    for (i=0; i<n-1; i++) {
+        least = i;
+        for (j=i+1; j<n; j++)   //최솟값 탐색
+            if (list[j] < list[least])
+                least = j;
+        SWAP(list[i], list[least], temp);
+    }
+}
+```
+<br/>
+
+
+<h4>[ 선택 정렬의 복잡도 분석 ]</h4>
+
+선택 정렬 알고리즘의 복잡도: O(n<sup>2</sup>)
+
+전체 비교 횟수: (n-1)+(n-2)+...+1 = n(n-1)/2 = O(n<sup>2</sup>)<br/>
+&nbsp;&nbsp;&nbsp;-> 외부 루프의 실행 횟수 n-1번 × 내부 루프는 외부 루프의 i에 대해 (n-1)-i번 반복<br/>
+전체 이동 횟수: 3(n-1)<br/>
+&nbsp;&nbsp;&nbsp;-> 외부 루프의 실행 횟수 n-1번 × 한번 교환시 3번의 이동이 필요
+
+|||
+|---|---|
+|<b>장점+</b>|- 자료 이동 횟수가 미리 결정됨|
+|<b>단점-</b>|- 안정성을 만족하지 않음<br/>(값이 같은 레코드가 있는 경우에 상대적인 위치가 변경될 수 있음)|
+
+<br/>
+<hr/>
+
+## 12.3 삽입 정렬
+<h4>[ 삽입 정렬의 원리 ]</h4>
+
+<b>삽입 정렬 방법</b>
+1. 초기 상태에는 정렬되지 않은 배열임
+2. <mark>정렬되지 않은 부분의 첫 번째 요소의 값을 정렬된 부분의 적절한 위치에 삽입함</mark><br/>
+-> 정렬 처음에는 배열의 두 번째 값부터 적절한 위치를 찾아 삽입
+3. 배열의 모든 부분이 정렬될 때까지 단계2를 <span style="color:blue">(숫자 개수-1)</span>번 반복함<br/>
+-> 점차 배열의 왼쪽은 정렬된 상태, 오른쪽은 정렬되지 않은 상태가 되며 모두 정렬됨
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Insertion_sort_001.PNG" width="300" height="400"/><br/>
+<span style="color:grey">[참고: 위키백과]</span>
+<br/><br/>
+
+
+<h4>[ 삽입 정렬 알고리즘 ]</h4>
+
+다음은 삽입 정렬 알고리즘을 의사 코드로 표현한 것이다.
+```
+insertion_sort(A, n):
+    for i<-1 to n-1 do          //인덱스 0은 이미 정렬되어 있음
+        key<-A[i];
+        j<-i+1;
+        while j≥0 and A[j]>key do
+            A[j+1]<-A[j];
+            j<-j-1;
+        A[j+1]<-key;
+```
+
+다음은 위의 의사 코드를 C언어로 구현한 것이다.
+```c
+void insertion_sort(int list[], int n) {
+    int i, j, key;
+    for (i=1; i<n; i++) {
+        key = list[i];
+        for (j=i-1; j>=0 && list[j]>key; j--)   //정렬된 부분의 적절한 위치 찾기
+            list[j+1] = list[i];                //레코드의 오른쪽 이동
+        list[j+1] = key;
+    }
+}
+```
+<br/>
+
+
+<h4>[ 삽입 정렬의 복잡도 분석 ]</h4>
+
+삽입 정렬 알고리즘의 평균 복잡도: O(n<sup>2</sup>)
+
+삽입 정렬의 복잡도는 입력 자료의 구성에 따라서 달라진다. 
+
+- 입력 자료가 이미 정렬되어 있는 경우: 가장 빠름
+    - 전체 비교 횟수: n-1번<br/>
+        &nbsp;&nbsp;&nbsp;-> 외부 루프의 실행 횟수 n-1번 × 각 단계에서 1번의 비교<br/>
+        전체 이동 횟수: 2(n-1)<br/>
+        &nbsp;&nbsp;&nbsp;-> 외부 루프의 실행 횟수 n-1번 × 각 단계에서 2번의 이동
+- 입력 자료가 역순으로 되어 있는 경우: 최악
+    - 전체 비교 횟수: 1+2+...+(n-1) = n(n-1)/2 = O(n<sup>2</sup>)<br/>
+        &nbsp;&nbsp;&nbsp;-> 외부 루프의 실행 횟수 n-1번, 외부 루프 안의 각 반복마다 i번의 비교<br/>
+        전체 이동 횟수: n(n-1)/2 + 2(n-1) = O(n<sup>2</sup>)<br/>
+        &nbsp;&nbsp;&nbsp;-> 외부 루프의 실행 횟수 n-1번, 외부 루프의 각 단계마다 i+2번의 이동
+
+|||
+|---|---|
+|<b>장점+</b>|- 안정성을 만족함<br/>- 이미 정렬되어 있는 경우에 매우 효율적임|
+|<b>단점-</b>|- 자료 이동 횟수가 비교적 많다. (레코드가 많고 크기가 클 경우 부적합함)|
+
+<br/>
+<hr/>
+
+## 12.4 버블 정렬
+<h4>[ 버블 정렬의 원리 ]</h4>
+
+<b>버블 정렬<sup>bubble sort</sup>:</b> 인접한 2개의 레코드를 비교하여 크기가 순서대로 되어 있지 않으면 서로 교환하는 비교-교환 과정(스캔)을 리스트의 왼쪽 끝에서 시작해 오른쪽 끝까지 진행한다.
+
+<b>버블 정렬 방법</b>
+1. 초기 상태에는 정렬되지 않은 배열임
+2. <mark>리스트의 비교-교환 과정이 한번 완료되면 가장 큰 레코드가 리스트의 오른쪽 끝으로 이동됨</mark>
+3. 배열의 모든 부분이 정렬될 때까지 단계2(스캔)를 <span style="color:blue">(숫자 개수-1)</span>번 반복함
+
+<img src="https://t1.daumcdn.net/cfile/tistory/275F9A4A545095BD01" width="300" height="300"/>&nbsp;&nbsp;&nbsp;
+<img src="https://t1.daumcdn.net/cfile/tistory/2413054D545095E034" width="300" height="300"/><br/>
+<span style="color:grey">[참고: wonjayk님의 블로그]</span>
+<br/><br/>
+
+
+<h4>[ 버블 정렬 알고리즘 ]</h4>
+
+다음은 버블 정렬 알고리즘을 의사 코드로 표현한 것이다.
+```
+bubblesort(A, n):
+    for i<-n-1 to 1 do
+        for j<-0 to n-1 do
+            j와 j+1번째의 요소가 크기순이 아니라면 교환;
+            j++;
+        i--;
+```
+
+다음은 위의 의사 코드를 C언어로 구현한 것이다.
+```c
+#define SWAP(x, y, t) ( (t)=(x), (x)=(y), (y)=(t) )
+
+void bubblesort(int list[], int n) {
+    int i, j, temp;
+    for (i=n-1; i>0; i--)
+        for (j=0; j<i; j++)
+            /*앞뒤의 레코드를 비교한 후 교체*/
+            if (list[j] > list[j+1])
+                SWAP(list[j], list[j+1], temp);
+}
+```
+<br/>
+
+
+<h4>[ 버블 정렬의 복잡도 분석 ]</h4>
+
+버블 정렬 알고리즘의 평균 복잡도: O(n<sup>2</sup>)
+
+- 전체 비교 횟수: 1+2+...+(n-1) = n(n-1)/2 = O(n<sup>2</sup>)<br/>
+&nbsp;&nbsp;&nbsp;-> 최선, 평균, 최악의 어떠한 경우에도 항상 일정함
+- 전체 이동 횟수: 최악의 경우 SWP에 의해 비교 횟수 × 3, 최선의 경우는 없음
+&nbsp;&nbsp;&nbsp;-> 평균적인 경우에는 자료 이동이 0번에서 i번까지 같은 확률로 일어남\
+
+|||
+|---|---|
+|<b>단점-</b>|- 순서에 맞지 않은 요소를 인접한 요소와 교환함<br/><small>(하나의 요소가 가장 왼쪽에서 가장 오른쪽으로 이동하기 위해 배열에서 모든 다른 요소들과 교환되어야 함)</small>|
+
+<br/>
+<hr/>
+
+## 12.5 쉘 정렬
+<h4>[ 쉘 정렬의 원리 ]</h4>
+
+<b>쉘 정렬<sup>shell sort</sup>:</b> 정렬해야 할 리스트를 일정한 기준에 따라 분류하여 연속적이지 않은 여러 개의 부분 리스트를 만들고, 각 부분 리스트를 삽입 정렬을 이용하여 정렬한다.
+
+<b>삽입 정렬 vs 쉘 정렬</b>
+- 삽입 정렬은 요소들이 삽입될 때, 이웃한 위치로만 이동함<br/>
+-> 삽입 위치가 현재의 위치에서 멀다면 많은 위치 이동을 해야 함
+- 쉘 정렬에서는 요소들이 멀리 떨어진 위치로도 이동할 수 있음
+
+<b>쉘 정렬 방법</b>
+1. 초기 상태에는 정렬되지 않은 배열임
+2. 정렬해야 할 리스트를 일정한 기준(<mark>리스트의 각 k번째 요소를 추출함</mark>)에 따라 분류함<br/>
+-> 연속적이지 않은 여러 개의 부분 리스트를 만듦
+3. 각 부분 리스트를 삽입 정렬을 이용해 정렬함
+4. 모든 부분 리스트가 정렬되면 다시 전체 리스트를 더 적은 개수의 부분 리스트로 만든 후 알고리즘을 되풀이함<br/>
+-> 부분 리스트의 개수가 1이 될 때까지 되풀이
+
+첫 번째 패스(k번째 요소 추출)가 끝나면 간격을 1/2씩 줄여서 입력 배열의 각 k/2번째 요소를 추출하여 부분 리스트를 만든다.<br/>
+-> 간격은 처음에는 n/2 정도로 하고 각 패스마다 간격을 절반으로 줄이는 방식을 많이 사용한다:)
+
+여기서 실제로 부분 리스트들이 만들어지는 것은 아니고 일정한 간격으로 삽입 정렬을 수행하는 것 뿐이기에,, 추가적인 공간은 필요 없다.
+
+<img src="https://gmlwjd9405.github.io/images/algorithm-shell-sort/shell-sort.png" height="600"/><br/>
+<span style="color:grey">[참고: gmlwjd9405님의 블로그]</span>
+<br/><br/>
+
+
+<h4>[ 쉘 정렬 구현 ]</h4>
+
+다음은 쉘 정렬 알고리즘을 C언어로 구현한 것이다.<br/>
+이때 gap은 간격을 나타내며, 간격이 1이 될 때까지 간격을 1/2로 줄이면서 반복한다. (간격은 짝수이면 1을 더하는 것이 좋음)
+또한 부분 리스트의 개수는 gap이 된다.
+
+```c
+// gap 만큼 떨어진 요소들을 삽입 정렬
+// 정렬의 범위는 first에서 last
+
+inc_insertion_sort(int list[], int first, int last, int gap) {  //삽입 정렬
+    int i, j, key;
+    for (i=first+gap; i<=last; i=i+gap) {
+        key = list[i];
+        for (j=i-gap; j>=first && key<list[j]; j=j-gap)
+            list[j+gap] = list[j];
+        list[j+gap] = key;
+    }
+}
+
+void shell_sort(int list[], int n) {
+    int i, gap;
+    for (gap=n/2; gap>0; gap=gap/2) {
+        if ((gap%2) == 0)   gap++;  //gap이 짝수일 때는 gap+1을 해 홀수로 만듦
+        for (i=0; i<gap; i++)       //부분 리스트의 개수는 gap
+            inc_insertion_sort(list, i, n-1, gap);
+    }
+}
+```
+<br/>
+
+
+<h4>[ 쉘 정렬의 복잡도 분석 ]</h4>
+
+쉘 정렬 알고리즘의 평균 복잡도: O(n<sup>1.5</sup>)<br/>
+최악의 경우 복잡도: O(n<sup>2</sup>)
+
+삽입 정렬에 비해 장점+: 
+- 연속적이지 않은 부분 리스트에서 자료의 교환이 일어나면 더 큰 거리를 이동함
+- 부분 리스트는 어느 정도 정렬이 된 상태이기 때문에 부분 리스트의 개수가 1이 되게 되면 셀 정렬은 기본적으로 삽입 정렬을 수행하는 것이지만 빠르게 수행됨
+
+<br/>
+*이전까지 보았던 정렬 방법들은 비효율적이지만 간단하기 때문에 입력 데이터가 많지 않을 때에 사용할 수 있는 방법이다. 
+그러나 입력 데이터가 많으면서 자주 정렬을 해야 할 필요가 있으면 다음에 보게 될 훨씬 더 빠른 정렬들을 사용해야 한다.*
+
+<br/>
+<hr/>
+
+## 12.6 합병 정렬
+<h4>[ 합병 정렬의 원리 ]</h4>
+
+<b>합병 정렬<sup>merge sort</sup>:</b> <mark>하나의 리스트를 두 개의 균등한 크기로 분할하고 분할된 부분 리스트를 정렬한 다음, 두 개의 정렬된 부분 리스트를 합하여 전체가 정렬된 리스트를 얻고자 하는 방법</mark> (분할 정복 기법에 바탕을 둠)
+
+<b>합병 정렬 단계</b>
+1. 분할(Divide): 입력 배열을 같은 크기의 2개의 부분 배열로 분할
+2. 정복(Conquer): 부분 배열을 정렬. 부분 배열의 크기가 충분히 작지 않으면 순환 호출을 이용하여 다시 분할 정복 기법을 적용함
+3. 결합(Combine): 정렬된 부분 배열들을 하나의 배열에 통합
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" height="300"/><br/>
+<span style="color:grey">[참고: 위키백과]</span>
+<br/><br/>
+
+
+<h4>[ 합병 정렬 알고리즘 ]</h4>
+
+다음은 합병 정렬 알고리즘을 의사 코드로 표현한 것이다.
+```
+merge_sort(list, left, right):
+    if (left < right)           //나누어진 구간의 크기가 1 이상이면
+        mid = (left+right)/2;
+        merge_sort(list, left, mid);
+        merge_sort(list, mid+1, right);
+        merge(list, left, mid, right);
+```
+합병 정렬에서 실제로 정렬이 이루어지는 시점은 2개의 리스트를 합병(merge)하는 단계이다. 
+
+합병 알고리즘은 2개의 리스트의 요소들을 처음부터 하나씩 비교하여 두 개의 리스트의 요소 중에서 더 작은 요소를 새로운 리스트로 옮긴다. 
+둘 중에서 하나가 끝날 때까지 이 과정을 되풀이하며, 만약 하나의 리스트가 끝나면 나머지 리스트의 요소들을 전부 새로운 리스트로 복사한다. 
+후에 하나의 정렬된 리스트를 원래의 리스트에 복사한다.
+
+다음은 합병 알고리즘을 의사 코드로 표현한 것이다.
+```
+merge(list, left, mid, right):
+// 2개의 인접한 배열 list[left..mid=]와 list[mid+1..right]를 합병
+
+    i<-left;
+    j<-mid+1;
+    k<-left;    //정렬될 리스트의 인덱스
+    sorted 배열을 생성;
+    
+    while i≤mid and j≤right do
+        if (list[i] < list[j])  then
+            sorted[k] <- list[i];
+            k++;
+            i++;
+        else
+            sorted[k] <- list[j];
+            k++;
+            j++;
+    요소가 남아있는 부분 배열을 sorted로 복사한다;
+    sorted를 list로 복사한다;
+            
+```
+
+다음은 합병 정렬 알고리즘의 의사 코드를 C언어로 구현한 것이다.
+```c
+int sorted[MAX_SIZE];   // 추가 임시 공간이 필요
+
+/*  i는 정렬된 왼쪽 리스트에 대한 인덱스
+    j는 정렬된 오른쪽 리스트에 대한 인덱스
+    k는 정렬될 리스트(합병 결과)에 대한 인덱스  */
+
+void merge(int list[], int left, int mid, int right) {
+    int i, j, k, l;
+    i = left; j = mid+1; k = left;
+    
+    // 분할 정렬된 list의 합병
+    while (i<=mid && j<=right) {
+        if (list[i] <= list[j])
+            sorted[k++] = list[i++];
+        else
+            sorted[k++] = list[j++];
+    }
+    if (i > mid)    // 남아 있는 오른쪽 부분 리스트의 레코드 일괄 복사
+        for (l=j; l<=right; l++)
+            sorted[k++] = list[l];
+    else            // 남아 있는 왼쪽 부분 리스트의 레코드 일괄 복사
+        for (l=i; l<=mid; l++)
+            sorted[k++] = list[l];
+    
+    // 배열 sorted[]의 리스트를 배열 list[]로 재복사
+    for (l=left; l<=right; l++)
+        list[l] = sorted[l];
+}
+
+void merge_sort(int list[], int left, int right) {
+    int mid;
+    if (left < right) {
+        mid = (left+right)/2;               // 리스트의 균등 분할
+        merge_sort(list, left, mid);        // 부분 리스트 정렬
+        merge_sort(list, mid+1, right);     // 부분 리스트 정렬
+        merge(list, left, mid, right);      // 합병
+    }
+}
+```
+<br/>
+
+
+<h4>[ 합병 정렬의 복잡도 분석 ]</h4>
+
+합병 정렬 알고리즘의 최악, 평균, 최선 복잡도: O(nlog<sub>2</sub>n)
+
+순환 호출의 깊이 k = log<sub>2</sub>n<br/>
+전체 비교 횟수: nlog<sub>2</sub>n<br/>
+&nbsp;&nbsp;&nbsp;-> 하나의 합병단계에서는 최대 n번의 비교 연산 가능 × 합병단계는 총 log<sub>2</sub>n번<br/>
+전체 이동 횟수: 2nlog<sub>2</sub>n<br/>
+&nbsp;&nbsp;&nbsp;-> 하나의 합병단계에서 임시 배열에 복사했다가 다시 가져와야 하므로 2n번의 이동 연산 × 합병단계는 총 log<sub>2</sub>n번
+
+|||
+|---|---|
+|<b>장점+</b>|- 크기가 큰 레코드를 정렬할 경우 다른 어떤 정렬 방법보다 효율적임<br/>(레코드를 연결 리스트로 구성하여 정렬할 경우 링크 인덱스만 변경되므로 데이터의 이동은 무시가능한 정도로 작아짐)|
+|<b>단점-</b>|- 배열을 사용 시 임시 배열이 필요하며, 레코드들의 크기가 큰 경우에 이동 횟수가 많으므로 매우 큰 시간적 낭비를 초래함|
+
+<br/>
+<hr/>
+
+## 12.7 퀵 정렬
+<h4>[ 퀵 정렬의 원리 ]</h4>
+
+<b>퀵 정렬<sup>quick sort</sup>:</b> <mark>전체 리스트를 2개의 부분 리스트로 분할(균등x)하고, 각각의 부분 리스트를 다시 퀵정렬함</mark> (분할-정복법에 근거함)
+
+<b>퀵 정렬 방법</b>
+1. 리스트 안에 있는 한 요소를 피벗(pivot)으로 선택
+2. 피벗보다 작은 요소들은 모두 피벗의 왼쪽으로 옮겨지고 피벗보다 큰 요소들은 모두 피벗의 오른쪽으로 옮겨짐<br/>
+-> 결과적으로 피벗을 중심으로 왼쪽은 피벗보다 작은 요소들로, 오른쪽은 피벗보다 큰 요소들로 구성됨
+3. 이 상태에서 피벗을 제외한 왼쪽 리스트와 오른쪽 리스트를 다시 정렬하게 되면 전체 리스트가 정렬됨<br/>
+-> 순환 호출을 사용해 부분 리스트들이 더 이상 불가능할 때까지 나누어짐
+
+<img src="https://blog.kakaocdn.net/dn/cDTsMg/btqv7YEvljq/3s3J4uSbgP62Kq6rbR3hi0/img.png" height="400"/><br/>
+<span style="color:grey">[참고: byunji_jump님의 블로그]</span>
+<br/><br/>
+
+
+<h4>[ 퀵 정렬 알고리즘 ]</h4>
+
+다음은 퀵 정렬 알고리즘을 C언어로 구현한 것이다. 정렬 대상은 배열 list로서 정렬해야 할 범위는 left에서 right까지라고 가정한다.
+```c
+void quick_sort(int list[], int left, int right) {
+    if (left < right) {     // 정렬할 범위가 2개 이상의 데이터라면
+        int q = partition(list, left, right);   //피벗을 기준으로 2개의 리스트로 분할함
+        quick_sort(list, left, q-1);            //left에서 피벗의 바로 앞 위치까지를 대상으로 퀵 정렬함
+        quick_sort(list, q+1, right);           //피벗 바로 다음 위치에서 right까지를 대상으로 퀵 정렬함
+    }
+}
+```
+
+partition 함수는 데이터가 들어있는 배열 list의 left부터 right까지의 리스트를, 피봇을 기준으로 2개의 부분 리스트로 나누게 된다. 
+피벗보다는 작은 데이터는 모두 왼쪽 부분 리스트로, 큰 데이터는 모두 오른쪽 부분 리스트로 옮겨지게 된다. 
+또한 이 함수의 반환값은 피봇의 위치가 된다. 
+
+간단하게 partition 알고리즘을 설명하면 
+1. 인덱스 변수 low는 왼쪽->오른쪽으로 탐색해가다가 피벗보다 큰 데이터를 찾으면 멈춤
+2. 인덱스 변수 high는 반대로 오른쪽->왼쪽으로 탐색해가다가 피벗보다 작은 데이터를 찾으면 멈춤
+3. 탐색이 멈추어진 위치는 각 부분 리스트에 적합하지 않은 데이터로, 해당 위치의 두 데이터를 서로 교환함
+4. 이렇게 반복을 한 후에 low와 high가 엇갈려서 지나가게 되면 반복을 종료하고, 피봇을 중앙으로 이동시키게 되면 피봇을 기준으로 2개의 리스트로 나누어지게 됨
+
+다음은 퀵 정렬에서의 partition 함수를 C언어로 구현한 것이다.
+```c
+int partition(int list[], int left, int right) {
+    int pivot, temp;
+    int low, high;
+    
+    low = left;
+    high = right + 1;
+    pivot = list[left];     // 가장 왼쪽 데이터를 피벗으로 선택
+    do {
+        do
+            low++;
+        while (list[low]<pivot);
+        do
+            high++;
+        while (list[high]>pivot);
+        
+        if (low < high)  SWAP(list[low], list[high], temp); 
+    } while (low < high);
+    
+    SWAP(list[left], list[high], temp);     // 피벗을 중앙에 위치시킴 
+    return high;
+}
+```
+<br/>
+
+
+<h4>[ 퀵 정렬의 복잡도 분석 ]</h4>
+
+퀵 정렬 알고리즘의 평균, 최선 복잡도: O(nlog<sub>2</sub>n)<br/>
+퀵 정렬 알고리즘의 최악 복잡도: O(n<sup>2</sup>)<br/>
+&nbsp;&nbsp;&nbsp;-> 리스트가 계속 불균형하게 나누어지는 경우 (n번의 패스 × 한번의 패스에서 n번 비교 연산)
+
+평균 순환 호출의 깊이(패스의 개수) k = log<sub>2</sub>n<br/>
+전체 비교 횟수: nlog<sub>2</sub>n<br/>
+&nbsp;&nbsp;&nbsp;-> 각각의 패스에서 평균 n번의 비교 × 패스는 평균 log<sub>2</sub>n번<br/>
+전체 이동 횟수: 비교 횟수보다 적으므로 무시 가능함
+
+|||
+|---|---|
+|<b>장점+</b>|- O(nlog<sub>2</sub>n)의 복잡도를 가지는 다른 정렬 알고리즘과 비교하였을 때도 가장 빠름<br/>- 추가 메모리 공간을 필요로 하지 않음|
+|<b>단점-</b>|- 정렬된 리스트에 대해서는 오히려 수행 시간이 더 많이 걸림|
+
+불균형 분할을 방지하기 위해 피벗을 선택할 때 리스트의 중앙 부분을 분할할 수 있는 데이터를 선택해야 함(Solution)
+<br/><br/>
+
+
+<h4>[ 퀵 정렬 라이브러리 함수의 사용 ]</h4>
+
+C언어 실행시간 라이브러리에 퀵 정렬 함수가 제공된다. 
+
+qsort 함수는 각 요소가 width 바이트인 num개의 요소를 가지는 배열에 대해 퀵정렬을 수행한다. 
+또한 입력 배열은 정렬된 값으로 덮어 씌워진다. 
+compare는 배열 요소 2개를 서로 비교하는 사용자 제공함수로 qsort 함수가 요소들을 비교할 때마다 호출하여 사용한다.
+
+```c
+void qsort {
+    void *base,     // 배열의 시작주소
+    size_t num,     // 배열 요소의 개수
+    size_t width,   // 배열 요소 하나의 크기(byte 단위)
+    int (*compare)(const void *, const void *)  // 두 개의 요소를 비교하여 비교 결과를 정수로 반환
+}
+```
+
+<br/>
+<hr/>
+
+## 12.8 히프 정렬
+<h4>[ 히프 정렬의 원리 ]</h4>
+
+<b>히프(=힙)<sup>heap</sup>:</b> 우선순위 큐를 완전 이진 트리로 구현하는 방법으로, 최댓값이나 최솟값을 쉽게 추출할 수 있는 자료 구조
+
+<b>히프 정렬<sup>heap sort</sup>:</b> <mark>최소 히프 혹은 최대 히프를 이용하여 정렬하는 방법</mark><br/>
+<span style="color:blue">(내림차순 정렬을 위해서는 최대 히프을 구성하고, 오름차순 정렬을 위해서는 최소 히프을 구성하면 됨)</span>
+
+<b>히프 정렬 방법 (오름차순 기준)</b>
+1. 정렬할 배열을 먼저 최소 히프로 변환함
+2. 가장 작은 원소부터 차례대로 추출하여 정렬
+
+<img src="https://user-images.githubusercontent.com/53072057/101973466-b4639080-3c7b-11eb-8dc3-9d11436be06e.JPG" height="300"/><br/>
+<span style="color:grey">[참고: chs96님의 블로그]</span>
+<br/><br/>
+
+
+<h4>[ 히프 정렬 알고리즘 ]</h4>
+
+다음은 히프 정렬 알고리즘을 C언어로 구현한 것이다.
+```c
+void heap_sort(int list[], int n) {
+    int i;
+    HeapType* h;
+    
+    h = create();
+    init(h);
+    for (i=0; i<n; i++)
+        insert_min_heap(h, list[i]);
+    for (i=0; i<n; i++)
+        list[i] = delete_min_heap(h);
+    free(h);
+}
+```
+<br/>
+
+
+<h4>[ 히프 정렬의 복잡도 분석 ]</h4>
+
+히프 정렬 알고리즘의 평균 복잡도: O(nlog<sub>2</sub>n)<br/>
+-> 히프에 삽입이나 삭제할 때 히프를 재정비하는 시간인 log<sub>2</sub>n × 반복문 n번
+
+|||
+|---|---|
+|<b>장점-</b>|- 전체 자료를 정렬하는 것이 아니라 가장 큰 값 몇 개만 필요할 때 유용함|
+
+<br/>
+<hr/>
+
+## 12.9 기수 정렬
+<h4>[ 기수 정렬의 원리 ]</h4>
+
+<b>기수<sup>radix</sup>:</b> 숫자의 자릿수
+
+<b>기수 정렬<sup>radix sort</sup>:</b> 위의 정렬 방법들과 달리 <mark>레코드를 비교하지 않고 자릿수의 값에 따라 정렬하는 방법</mark>
+
+<b>기수 정렬 방법</b>
+- 낮은 자릿수로 정렬한 다음 차츰 높은 자릿수로 정렳함<br/>
+-> 각 자릿수의 값에 따라 버킷에 넣고 빼는 동작을 되풀이함
+
+<img src="http://dudri63.github.io/image/algo31-1.png" height="250"/><br/>
+<span style="color:grey">[참고: dudri63님의 블로그]</span>
+<br/><br/>
+
+
+<h4>[ 기수 정렬 알고리즘 ]</h4>
+
+다음은 기수 정렬 알고리즘을 의사 코드로 표현한 것이다.<br/>
+이때 LSD(least significant digit)는 가장 낮은 자릿수고, MSD(most significant digit)는 가장 높은 자릿수이다.
+```
+radix_sort(list, n):
+    for d<-LSD의 위치 to MSD의 위치 do
+        d번째 자릿수에 따라 0번부터 9번 버킷에 집어놓는다;
+        버킷에서 숫자들을 순차적으로 읽어서 하나의 리스트로 합친다;
+        d++;
+```
+각각의 버킷에서 먼저 들어간 숫자들은 먼저 나와야 한다. 
+따라서 각각의 버킷은 큐로 구현되어야 한다. <br/>
+또한 버킷의 개수는 키의 표현 방법과 밀접한 관계가 있다. 
+키를 10진법으로 한다면 버킷의 수는 10개, 키를 2진법으로 한다면 버킷의 수는 2개만 있으면 된다.
+
+
+다음은 기수 정렬 알고리즘의 의사 코드를 C언어로 구현한 것이다.
+```c
+#define BUCKETS 10
+#define DIGITS 4
+
+void radix_sort(int list[], int n) {
+    int i, b, d, factor = 1;
+    QueueType queues[BUCKETS];
+    
+    for (b=0; b<BUCKETS; b++)
+        init_queue(&queues[b]);
+    
+    for (d=0; d<DIGITS; d++) {
+        for (i=0; i<n; i++)             // 데이터들을 자릿수에 따라 큐에 삽입
+            enqueue(&queues[(list[i]/factor)%10], list[i]);
+    
+        for (b=i=0; b<BUCKETS; b++)     // 버킷에서 꺼내어 list로 합침
+            while (!is_empty(&queues[b]))
+                list[i++] = dequeue(&queues[b]);
+        factor *= 10;                   // 그 다음 자릿수로 감
+    }
+}
+```
+<br/>
+
+
+<h4>[ 기수 정렬의 복잡도 분석 ]</h4>
+
+기수 정렬 알고리즘의 최악, 평균, 최선 복잡도: O(d×n)<br/>
+->(각 정수가 d개의 자리수를 가지고 있을 때) 외부 루프는 d번 반복 × (입력 리스트가 n개의 정수를 가지고 있을 때) 내부 루프는 n번 반복
+
+일반적으로 컴퓨터 안에서의 정수의 크기는 제한되기에, d는 n에 비하여 아주 작은 수가 되므로 기수 정렬은 O(n)이라고 해도 무리가 없다.
+
+|||
+|---|---|
+|<b>장점+</b>|- 다른 정렬 방법에 비해 비교적 빠른 수행 시간안에 정렬 마침|
+|<b>단점-</b>|- 정렬할 수 있는 레코드의 타입이 한정됨<br/>- 추가적인 메모리를 필요로 함|
+
+<br/>
+<hr/>
+
+## 12.10 정렬 알고리즘의 비교
+|알고리즘|최선|평균|최악|
+|:---:|:---:|:---:|:---:|
+|선택 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)
+|삽입 정렬|O(n)|O(n<sup>2</sup>)|O(n<sup>2</sup>)
+|버블 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)
+|쉘 정렬|O(n)|O(n<sup>1.5</sup>)|O(n<sup>2</sup>)
+|합병 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)
+|퀵 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(n<sup>2</sup>)
+|히프 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)
+|기수 정렬|O(d*n)|O(d*n)|O(d*n)
+
+<br/>
+<hr/>
+
+지금까지 자료구조 중 정렬을 설명하는 포스트였습니다. 감사합니다:)
