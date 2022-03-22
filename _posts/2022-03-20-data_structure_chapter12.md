@@ -669,14 +669,14 @@ void radix_sort(int list[], int n) {
 ## 12.10 정렬 알고리즘의 비교
 |알고리즘|최선|평균|최악|
 |:---:|:---:|:---:|:---:|
-|선택 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)
-|삽입 정렬|O(n)|O(n<sup>2</sup>)|O(n<sup>2</sup>)
-|버블 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)
-|쉘 정렬|O(n)|O(n<sup>1.5</sup>)|O(n<sup>2</sup>)
-|합병 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)
-|퀵 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(n<sup>2</sup>)
-|히프 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)
-|기수 정렬|O(d*n)|O(d*n)|O(d*n)
+|선택 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|
+|삽입 정렬|O(n)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|
+|버블 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|
+|쉘 정렬|O(n)|O(n<sup>1.5</sup>)|O(n<sup>2</sup>)|
+|합병 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|
+|퀵 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(n<sup>2</sup>)|
+|히프 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|
+|기수 정렬|O(d*n)|O(d*n)|O(d*n)|
 
 <br/>
 <hr/>
