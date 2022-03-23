@@ -61,8 +61,7 @@ tags: 자료구조, 정렬
 -> 정렬 처음에는 배열의 모든 요소 중 최소값을 찾아 배열의 첫번째 요소와 그 값을 교환함
 3. 배열의 모든 부분이 정렬될 때까지 단계2를 <span style="color:blue">(숫자 개수-1)</span>번 반복함
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif" height="300"/><br/>
-<span style="color:grey">[참고: 위키백과]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159711741-240d26d1-ec50-44b5-a9a5-a036e6654427.png" height="400"/>
 <br/><br/>
 
 
@@ -123,8 +122,7 @@ void selection_sort(int list[], int n) {
 3. 배열의 모든 부분이 정렬될 때까지 단계2를 <span style="color:blue">(숫자 개수-1)</span>번 반복함<br/>
 -> 점차 배열의 왼쪽은 정렬된 상태, 오른쪽은 정렬되지 않은 상태가 되며 모두 정렬됨
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Insertion_sort_001.PNG" width="300" height="400"/><br/>
-<span style="color:grey">[참고: 위키백과]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159711904-67dfc86d-8b52-4ddf-ab73-7a1bda743d65.png" height="400"/>
 <br/><br/>
 
 
@@ -192,9 +190,10 @@ void insertion_sort(int list[], int n) {
 2. <mark>리스트의 비교-교환 과정이 한번 완료되면 가장 큰 레코드가 리스트의 오른쪽 끝으로 이동됨</mark>
 3. 배열의 모든 부분이 정렬될 때까지 단계2(스캔)를 <span style="color:blue">(숫자 개수-1)</span>번 반복함
 
-<img src="https://t1.daumcdn.net/cfile/tistory/275F9A4A545095BD01" width="300" height="300"/>&nbsp;&nbsp;&nbsp;
-<img src="https://t1.daumcdn.net/cfile/tistory/2413054D545095E034" width="300" height="300"/><br/>
-<span style="color:grey">[참고: wonjayk님의 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159711921-357a20a2-a196-4626-ba64-70f0d67fddb8.png" height="400"/>
+
+위의 사진 중 왼쪽 그림은 버블 정렬의 한 번의 스캔 시에 과정 및 결과를 보여준다.<br/>
+오른쪽 그림은 버블 정렬의 전체 정렬 과정을 보여준다. (배열 요소의 개수-1번의 스캔 결과)
 <br/><br/>
 
 
@@ -233,7 +232,7 @@ void bubblesort(int list[], int n) {
 - 전체 비교 횟수: 1+2+...+(n-1) = n(n-1)/2 = O(n<sup>2</sup>)<br/>
 &nbsp;&nbsp;&nbsp;-> 최선, 평균, 최악의 어떠한 경우에도 항상 일정함
 - 전체 이동 횟수: 최악의 경우 SWP에 의해 비교 횟수 × 3, 최선의 경우는 없음
-&nbsp;&nbsp;&nbsp;-> 평균적인 경우에는 자료 이동이 0번에서 i번까지 같은 확률로 일어남\
+&nbsp;&nbsp;&nbsp;-> 평균적인 경우에는 자료 이동이 0번에서 i번까지 같은 확률로 일어남
 
 |||
 |---|---|
@@ -265,8 +264,7 @@ void bubblesort(int list[], int n) {
 
 여기서 실제로 부분 리스트들이 만들어지는 것은 아니고 일정한 간격으로 삽입 정렬을 수행하는 것 뿐이기에,, 추가적인 공간은 필요 없다.
 
-<img src="https://gmlwjd9405.github.io/images/algorithm-shell-sort/shell-sort.png" height="600"/><br/>
-<span style="color:grey">[참고: gmlwjd9405님의 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159712321-27929d6f-9ffa-4527-bdd2-a5d2b717becf.png" height="500"/>
 <br/><br/>
 
 
@@ -328,8 +326,7 @@ void shell_sort(int list[], int n) {
 2. 정복(Conquer): 부분 배열을 정렬. 부분 배열의 크기가 충분히 작지 않으면 순환 호출을 이용하여 다시 분할 정복 기법을 적용함
 3. 결합(Combine): 정렬된 부분 배열들을 하나의 배열에 통합
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" height="300"/><br/>
-<span style="color:grey">[참고: 위키백과]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159743130-1b67f181-67f1-4ef3-b1bc-9695a9973c70.png" height="400"/>
 <br/><br/>
 
 
@@ -448,8 +445,10 @@ void merge_sort(int list[], int left, int right) {
 3. 이 상태에서 피벗을 제외한 왼쪽 리스트와 오른쪽 리스트를 다시 정렬하게 되면 전체 리스트가 정렬됨<br/>
 -> 순환 호출을 사용해 부분 리스트들이 더 이상 불가능할 때까지 나누어짐
 
-<img src="https://blog.kakaocdn.net/dn/cDTsMg/btqv7YEvljq/3s3J4uSbgP62Kq6rbR3hi0/img.png" height="400"/><br/>
-<span style="color:grey">[참고: byunji_jump님의 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159743126-e01d59bf-3ab2-40a0-929f-4aeea77e03b0.png" height="500"/>
+
+위의 그림은 퀵 정렬에서 피봇을 기준으로 두 개의 리스트로 나누는 과정이다. 
+이와 같은 과정이 또 피벗을 제외한 왼쪽 리스트와 오른쪽 리스트를 정렬할 때 사용하며 반복을 통해 전체 리스트가 정렬된다.
 <br/><br/>
 
 
@@ -555,8 +554,7 @@ void qsort {
 1. 정렬할 배열을 먼저 최소 히프로 변환함
 2. 가장 작은 원소부터 차례대로 추출하여 정렬
 
-<img src="https://user-images.githubusercontent.com/53072057/101973466-b4639080-3c7b-11eb-8dc3-9d11436be06e.JPG" height="300"/><br/>
-<span style="color:grey">[참고: chs96님의 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159743122-c0abed74-6ac3-49cd-b686-d020db38eacc.png" height="400"/>
 <br/><br/>
 
 
@@ -603,8 +601,7 @@ void heap_sort(int list[], int n) {
 - 낮은 자릿수로 정렬한 다음 차츰 높은 자릿수로 정렳함<br/>
 -> 각 자릿수의 값에 따라 버킷에 넣고 빼는 동작을 되풀이함
 
-<img src="http://dudri63.github.io/image/algo31-1.png" height="250"/><br/>
-<span style="color:grey">[참고: dudri63님의 블로그]</span>
+<img src="https://user-images.githubusercontent.com/78736070/159743117-b221b3d0-c146-43ce-aefb-7e3147cd249b.png" height="350"/>
 <br/><br/>
 
 
@@ -667,16 +664,7 @@ void radix_sort(int list[], int n) {
 <hr/>
 
 ## 12.10 정렬 알고리즘의 비교
-|알고리즘|최선|평균|최악|
-|:---:|:---:|:---:|:---:|
-|선택 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|
-|삽입 정렬|O(n)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|
-|버블 정렬|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|
-|쉘 정렬|O(n)|O(n<sup>1.5</sup>)|O(n<sup>2</sup>)|
-|합병 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|
-|퀵 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(n<sup>2</sup>)|
-|히프 정렬|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|O(nlog<sub>2</sub>n)|
-|기수 정렬|O(d*n)|O(d*n)|O(d*n)|
+<img src="https://user-images.githubusercontent.com/78736070/159743110-1b5a9e1b-1bd2-46a1-b2d6-d5b9a7f8c4f1.png" height="400"/>
 
 <br/>
 <hr/>
