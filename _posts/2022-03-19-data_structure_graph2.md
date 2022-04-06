@@ -1,7 +1,7 @@
 ---
 layout: post
 toc: true
-title: "[자료구조] 최소 비용 신장 트리"
+title: "[자료구조] 그래프 - 최소 비용 신장 트리"
 categories: 자료구조
 tags: 자료구조, 그래프
 ---
