@@ -50,7 +50,9 @@ console.log(name);
 
 <br/>
 <u><b>그렇다면 let과 const의 차이는 무엇일까?</b></u>
-- <b>let</b>은 변수 재선언을 불가능하지만, <b>변수에 값 재할당이 가능</b>하다. 
+
+- <b>let</b>은 변수 재선언을 불가능하지만, <b>변수에 값 재할당이 가능</b>하다.
+
     ```javascript
     let name = 'young'
     console.log(name);      // young
