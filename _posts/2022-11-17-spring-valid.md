@@ -37,6 +37,7 @@ implementation 'org.springframework.boot:spring-boot-starter-validation'
 다음은 @Valid를 사용한 예시 코드로, 로그인 시 클라이언트에서 전달하는 정보를 검증하는 코드이다.
 
 - 컨트롤러
+
 ```java
 import javax.validation.Valid;
 
@@ -53,6 +54,7 @@ public class AuthController {
 <br/>
 
 - DTO
+
 ```java
 @ToString
 @Getter
