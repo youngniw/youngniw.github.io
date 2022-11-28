@@ -192,7 +192,7 @@ public class ResponseExceptionHandler {
 
 <br/>
 
-9. 정규식 검증
+9.  정규식 검증
 - `@Pattern` : 정규식과 대응되는 문자열이어야 함
 
     cf. 가능 속성: regexp(정규 표현식), flags, message, groups, payload <br/>
