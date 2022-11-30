@@ -100,6 +100,7 @@ tags: 자바, 자바8, 스트림
     ```
 
 - 예제
+
 1. 숫자 리스트가 주어졌을 때, 각 숫자의 제곱근으로 이루어진 리스트를 반환해 보자.
    
     ```java
@@ -113,9 +114,10 @@ tags: 자바, 자바8, 스트림
     List<Integer> list1 = Arrays.asList(1, 2, 3);
     List<Integer> list2 = Arrays.asList(4, 5);
 
-    List<int[]> pairs = list1.stream().flatmap(
-      n1 -> list2.stream().map(n2 -> new int[]{ n1, n2 })
-    ).collect(Collectors.toList());
+    List<int[]> pairs = list1.stream()
+        .flatmap(n1 -> list2.stream()
+            .map(n2 -> new int[]{ n1, n2 }))
+        .collect(Collectors.toList());
     ```
 
 3. 2번 문제에서 합이 짝수인 쌍만 반환해 보자.
@@ -124,9 +126,11 @@ tags: 자바, 자바8, 스트림
     List<Integer> list1 = Arrays.asList(1, 2, 3);
     List<Integer> list2 = Arrays.asList(4, 5);
 
-    List<int[]> pairs = list1.stream().flatmap(
-      n1 -> list2.stream().filter(n2 -> (n1+n2)%2==0).map(n2 -> new int[]{ n1, n2 })
-    ).collect(Collectors.toList());
+    List<int[]> pairs = list1.stream()
+        .flatmap(n1 -> list2.stream()
+            .filter(n2 -> (n1+n2)%2==0)
+            .map(n2 -> new int[]{ n1, n2 }))
+        .collect(Collectors.toList());
     ```
 
 <br/>
@@ -232,6 +236,7 @@ tags: 자바, 자바8, 스트림
 <hr/>
 
 ### 2.6 스트림 메서드 정리
+
 |연산|형식|반환 형식|사용된 함수형 인터페이스 형식|함수 스크립터|
 |--|--|--|--|--|
 |filter|중간 연산|Stream\<T>|Predicate\<T>|T -> boolean|
