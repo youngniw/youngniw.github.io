@@ -241,14 +241,14 @@ tags: 자바, 자바8, 스트림
   ```java
   // 소수인지 확인하는 불린 함수
   public boolean isPrime(int number) {
-	  return IntStream.rangeClosed(2, (int)Math.sqrt((double) number))
-		  .noneMatch(i -> number%i == 0);
+  	return IntStream.rangeClosed(2, (int)Math.sqrt((double) number))
+      		.noneMatch(i -> number%i == 0);
   }
 
   // 소수와 비소수 분류 함수
   public Map<Boolean, List<Integer>> partitionPrimes(int n) {
-    return IntStream.rangeClosed(2, n).boxed()
-      .collect(partitioningBy(num -> isPrime(num)));
+  	return IntStream.rangeClosed(2, n).boxed()
+      		.collect(partitioningBy(num -> isPrime(num)));
   }
   ```
 
