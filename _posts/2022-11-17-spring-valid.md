@@ -13,7 +13,7 @@ tags: 스프링, 스프링부트
 <hr/>
 
 ## 1. @Valid
-<br/>
+
 SpringBoot에서는 어노테이션을 통해 객체의 필드 값 검증이 가능하다.
 
 `@Valid` 는 빈 검증기(Bean Validator)를 이용해 객체의 제약 조건을 검증하도록 지시하는 어노테이션이다.
@@ -81,7 +81,8 @@ public class LoginDto {
 ### 1.2 예외 처리 핸들러
 `@Valid`로 객체의 검증 상황에서 발생 가능한 Bad Request에 대해 커스텀 하게 예외 처리를 진행할 수 있다.
 
-- 잘못된 객체의 값이 주어졌을 때에는 MethodArgumentNotValidException 발생
+- 잘못된 객체의 값이 주어졌을 때에는 **MethodArgumentNotValidException** 발생
+- Dispatcher Servlet에 기본으로 등록된 DefaultHandlerExceptionResolver에 의해 400 BadRequest 오류 발생
 - 해당 예외를 @ControllerAdvice를 이용해 Controller 단의 예외 처리 진행 가능
 - MethodArgumentNotValidException에 대한 @ExceptionHandler 어노테이션을 지정해 커스텀 가능
 
@@ -201,10 +202,44 @@ public class ResponseExceptionHandler {
 <br/>
 <hr/>
 
+### 1.4 @Valid와 @Validated 차이
+
+- @Valid 어노테이션: JSR 표준 기술로, javax.validation 패키지에 속함
+- @Validated 어노테이션: 스프링 프레임워크에서 제공하는 기능으로, org.springframework.validation.annotation에 속함
+  - @Validated = @Valid 기능 + 유효성을 검증할 옵션에 대한 그룹 지정 기능
+
+<b>[ @Valid ]</b>
+
+- @Valid는 컨트롤러에서만 동작함
+- 컨트롤러 내의 유효성 검증을 진행할 메서드의 파라미터에 @Valid를 표시
+- 모든 요청은 Dispatcher Servlet을 거쳐 Controller로 전달되는데, 이때 Dispatcher Servlet에서 @Valid를 찾아 검증함
+  - 전달 과정에서 Controller 메서드의 객체를 만들어주는 ArgumentResolver 동작 
+  - @Valid도 ArgumentResolver에서 처리됨
+
+  - @RequestBody: ArgumentResolver의 구현체인 RequestResponseBodyMethodProcessor에서 @Valid 처리
+  - @ModelAttribute: ModelAttributeMethodProcessor에서 @Valid 처리
+
+- 입력 파라미터의 유효성 검증은 컨트롤러에서 처리하는 것이 좋음
+
+<br/>
+
+<b>[ @Validated ]</b>
+
+- @Validated는 AOP를 기반으로 메서드의 요청을 가로채 유효성 검증
+- 따라서 @Validated는 컨트롤러 이외의 계층(스프링 빈)에서도 동작 가능
+
+- 클래스에는 @Validated를 선언하고, 유효성 검증을 진행할 메서드의 파라미터에 @Valid를 선언
+- 유효성 검증 실패 시, ConstraintViolationException 예외 발생
+  - cf. @Valid 유효성 검증 실패 시: MethodArgumentNotValidException 예외 발생
+
+<br/>
+<hr/>
+
 [ 참고 사이트 ]
 - https://www.baeldung.com/spring-boot-bean-validation
 - https://www.baeldung.com/java-bean-validation-not-null-empty-blank
 - https://jyami.tistory.com/55
+- https://wildeveloperetrain.tistory.com/158
 
 <br/>
 지금까지 자바의 Valid 어노테이션을 설명하는 포스트였습니다. 감사합니다:)
