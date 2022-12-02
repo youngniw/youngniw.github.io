@@ -14,20 +14,13 @@ tags: 자바, 자바8
 <br/>
 
 > 핵심 부분 바로가기!
-- [0. 들어가기에 앞서..](#0-들어가기에-앞서)
-- [1. java.time 패키지](#1-javatime-패키지)
-- [2. LocalDate, LocalTime, LocalDateTime, Instant, Duration, Period](#2-localdate-localtime-localdatetime-instant-duration-period)
-  - [2.1 LocalDate와 LocalTime, LocalDateTime](#21-localdate와-localtime-localdatetime)
-    - [2.1.1 LocalDate](#211-localdate)
-    - [2.1.2 LocalTime](#212-localtime)
-    - [2.1.3 LocalDateTime](#213-localdatetime)
-  - [2.2 Instant](#22-instant)
-  - [2.3 Duration과 Period](#23-duration과-period)
-    - [2.3.1 Duration](#231-duration)
-    - [2.3.2 Period](#232-period)
-- [3. 날짜 조정과 파싱, 그리고 포매팅](#3-날짜-조정과-파싱-그리고-포매팅)
-  - [3.1 날짜 조정](#31-날짜-조정)
-  - [3.2 파싱과 포맷팅](#32-파싱과-포맷팅)
+
+- [2.1.1 LocalDate](#211-localdate)
+- [2.1.2 LocalTime](#212-localtime)
+- [2.1.3 LocalDateTime](#213-localdatetime)
+- [2.2 Instant](#22-instant)
+- [2.3.1 Duration](#231-duration)
+- [2.3.2 Period](#232-period)
 
 <br/>
 <hr/>
