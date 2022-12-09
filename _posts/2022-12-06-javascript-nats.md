@@ -109,17 +109,20 @@ if (err) {
 
 ### 1.3 게시(Publish) 및 구독(Subscribe)
 
-- `publish` 메서드: 메시지 게시<br/>
+- `publish` 메서드: 메시지 게시
+
   ```javascript
   nc.publish(subject: string, data?: Uint8Array, options?: PublishOptions);
   ```
 
-- `subscribe` 메서드: 메시지 구독 (반환값: Subscription)<br/>
+- `subscribe` 메서드: 메시지 구독 (반환값: Subscription)
+
   ```javascript
   nc.subscribe(subject: string, opts?: SubscriptionOptions);
   ```
 
-- `unsubscribe` 혹은 `drain` 메서드: 구독 취소<br/>
+- `unsubscribe` 혹은 `drain` 메서드: 구독 취소
+
   ```javascript
   subscription.unsubscribe();
   subscription.drain();
@@ -186,12 +189,14 @@ await nc.drain();   // 전달 중인 메시지 모두 수신 후 구독 취소
 
 ### 1.4 요청(Request) 및 응답(Reply)
 
-- `request` 메서드: 응답을 바라는 요청 (반환값: Promise\<Msg>)<br/>
+- `request` 메서드: 응답을 바라는 요청 (반환값: Promise\<Msg>)
+  
   ```javascript
   nc.request(subject: string, data?: Uint8Array, opts?: RequestOptions);
   ```
   
-- `respond` 메서드: 요청에 대한 응답 전달 (반환값: boolean)<br/>
+- `respond` 메서드: 요청에 대한 응답 전달 (반환값: boolean)
+  
   ```javascript
   message.respond(data?: Uint8Array, opts?: PublishOptions);
   ```
@@ -204,6 +209,7 @@ await nc.drain();   // 전달 중인 메시지 모두 수신 후 구독 취소
 <b>[ 예제 코드 ]</b>
 
 - 요청 코드
+
 ```javascript
 import { connect, StringCodec } from 'nats.ws';
 
@@ -256,6 +262,6 @@ await sub.drain();   // 전달 중인 메시지 모두 수신 후 구독 취소
 <hr/>
 
 지금까지 자바스크립트로 NATS 메시징 시스템을 이용하는 방법에 대해 설명하였습니다.<br/>
-다음 포스트에서는 자바로 NATS를 적용하는 방법에 대해 설명하겠습니다.
+다음 포스트에서는 SpringBoot 프로젝트 내에서 NATS 서버를 설정하는 방법에 대해 설명하겠습니다.
 
 감사합니다:)
