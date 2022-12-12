@@ -237,7 +237,7 @@ cf. `Dispatcher`와 `Subscription`, 그리고 `Connection` 모두 `drain()`을 �
 
 1.<mark>Publish</mark>
 
-NatsComponenet.java 의 일부 코드
+NatsComponent.java 의 일부 코드
 
 ```java
 @RequiredArgsConstructor
@@ -263,9 +263,10 @@ NatsAsyncMessageHandler.java 의 일부 코드
 
 ```java
 @Slf4j
+@Profile("async")
 @RequiredArgsConstructor
 @Component
-public class NatsComponent {
+public class NatsAsyncMessageHandler {
   private final Connection natsConnection;
   private Dispatcher dispatcher;
 
@@ -331,7 +332,7 @@ nc.publish(message.getReplyTo(), byte[] body);
 
 1.<mark>Request</mark>
 
-NatsComponenet.java 의 일부 코드
+NatsComponent.java 의 일부 코드
 
 ```java
 @Slf4j
@@ -361,9 +362,10 @@ NatsAsyncMessageHandler.java 의 일부 코드
 
 ```java
 @Slf4j
+@Profile("async")
 @RequiredArgsConstructor
 @Component
-public class NatsComponent {
+public class NatsAsyncMessageHandler {
   private final Connection natsConnection;
   private final VehicleService vehicleService;
   private Dispatcher dispatcher;
