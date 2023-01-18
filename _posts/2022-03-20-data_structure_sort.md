@@ -554,7 +554,7 @@ void qsort {
 1. 정렬할 배열을 먼저 최소 히프로 변환함
 2. 가장 작은 원소부터 차례대로 추출하여 정렬
 
-<img src="https://user-images.githubusercontent.com/78736070/159743122-c0abed74-6ac3-49cd-b686-d020db38eacc.png" height="400"/>
+<img src="https://user-images.githubusercontent.com/78736070/213165194-8d2438dd-b1aa-45fb-a48d-db9071decb32.png" height="400"/>
 <br/><br/>
 
 
