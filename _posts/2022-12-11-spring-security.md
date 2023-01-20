@@ -2,7 +2,7 @@
 layout: post
 toc: true
 title: "[Spring Security] Spring Security 간단 정리"
-categories: Spring Security
+categories: SpringSecurity
 tags: SpringSecurity, 스프링시큐리티, SpringBoot, 스프링부트, Spring, 스프링
 ---
 
