@@ -2,7 +2,7 @@
 layout: post
 toc: true
 title: "[Spring Security] JWT 토큰을 통한 로그인"
-categories: Spring Security
+categories: SpringSecurity
 tags: SpringSecurity, 스프링시큐리티, SpringBoot, 스프링부트, Spring, 스프링, JWT
 ---
 
