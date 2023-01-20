@@ -2,8 +2,8 @@
 layout: post
 toc: true
 title: "[자바스크립트] 자바스크립트 기초 문법 5. 배열"
-categories: 자바스크립트
-tags: 자바스크립트, Javascript, 기초 문법
+categories: Javascript
+tags: 자바스크립트, Javascript, 문법
 ---
 
 ## 0. 들어가기에 앞서..
