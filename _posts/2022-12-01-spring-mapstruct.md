@@ -2,8 +2,8 @@
 layout: post
 toc: true
 title: "[Spring] Mapstruct 라이브러리"
-categories: 스프링
-tags: 스프링, 스프링부트, 라이브러리
+categories: Spring
+tags: 스프링, 스프링부트, 라이브러리, Spring, SpringBoot
 ---
 
 ## 0. 들어가기에 앞서..
