@@ -1,5 +1,5 @@
 ---
-layout: post\
+layout: post
 title: "[자료구조] 정렬"
 categories: Data-Structure
 tags: [DataStructure, Sort, 자료구조, 정렬]
