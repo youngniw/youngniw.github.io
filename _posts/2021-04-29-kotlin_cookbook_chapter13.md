@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[코틀린 쿡북] 13장 코틀린과 구조적 동시성"
 categories: Kotlin
-tags: 코틀린_스터디
+tags: [Kotlin, 코틀린]
 ---
 
 ## Chapter 13, 코틀린과 구조적 동시성

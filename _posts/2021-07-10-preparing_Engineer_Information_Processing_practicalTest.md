@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[정보처리기사] 정처기 실기시험 준비 및 후기"
-categories: 정보처리기사
-tags: 정처기
+categories: Etc
+tags: [정보처리기사]
 ---
 
 ## 2021년 정기 기사 2회: 정처기 실기

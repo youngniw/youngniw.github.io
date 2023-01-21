@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[JPA] 2. JPA 시작"
 categories: JPA
-tags: 스프링부트, JPA
+tags: [SprintBoot, JPA, 스프링부트]
 ---
 
 # &#91;자바 ORM 표준 JPA 프로그래밍&#93; Chapter 2. JPA 시작

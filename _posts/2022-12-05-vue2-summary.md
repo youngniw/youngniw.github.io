@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[Vue] Vue 2 정리"
 categories: Vue.js
-tags: Vue.js, 자바스크립트, Vue2
+tags: [Vue.js, Vue2, javascript, 자바스크립트]
 ---
 
 ## 0. 들어가기에 앞서..

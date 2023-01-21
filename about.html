@@ -1,0 +1,38 @@
+---
+layout: about
+title: About
+---
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+<h2>About</h2>
+
+<p>
+  이 블로그는 개발 개념을 설명하거나 제가 기억해야 할 것을 적어주는 일종의 노트와 같습니다.
+</p>
+
+<p>
+  블로그 내의 글들이 저에게, 그리고 보시는 여러분에게 도움이 되길 바랍니다.
+</p>
+
+<p>
+  감사합니다:)
+</p>
+
+<br/>
+
+<h4>Contact to YoungEun</h4>
+
+<p>
+  E-Mail: <a class="contact-info" href="mailto:{{ site.email }}" style="color: cornflowerblue;">{{ site.email }}</a>
+</p>
+
+{% if site.data.social -%}
+  <p>
+    {% for social in site.data.social -%}
+      <a href="{{ social.url }}" style="display: inline-flex; align-items: center; justify-content: center; margin-right: 1.5rem">
+        <i class="{{ social.icon | default: 'fas fa-link' }} fa-2x" style="color: cornflowerblue;" title="{{ social.title }}"></i>
+      </a>
+    {%- endfor %}
+  </p>
+{%- endif %}

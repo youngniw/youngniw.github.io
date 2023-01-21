@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[자료구조] 그래프 - 위상 정렬"
-categories: 자료구조
-tags: 자료구조, 그래프
+categories: Data-Structure
+tags: [DataStructure, Graph, 자료구조, 그래프]
 ---
 
 #### 위상 정렬

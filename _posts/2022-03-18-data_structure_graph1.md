@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[자료구조] 그래프(Graph)"
-categories: 자료구조
-tags: 자료구조, 그래프
+categories: Data-Structure
+tags: [DataStructure, Graph, 자료구조, 그래프]
 ---
 
 #### 그래프 개념 및 정의, 그래프의 탐색(깊이 우선 탐색, 너비 우선 탐색)

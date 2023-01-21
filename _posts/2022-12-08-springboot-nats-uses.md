@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[SpringBoot] NATS 통신하기 - 메시지 게시/구독/요청/회신"
 categories: SpringBoot
-tags: NATS, SpringBoot, Java
+tags: [NATS, Spring, SpringBoot, 스프링, 스프링부트]
 ---
 
 ## 0. 들어가기에 앞서..

@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[자바스크립트] Javascript로 NATS 통신하기"
 categories: Javascript
-tags: NATS, 자바스크립트, javascript, Vue.js
+tags: [NATS, Vue.js, Vue3, javascript, 자바스크립트]
 ---
 
 ## 0. 들어가기에 앞서..

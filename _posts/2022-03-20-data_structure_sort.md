@@ -1,9 +1,8 @@
 ---
-layout: post
-toc: true
+layout: post\
 title: "[자료구조] 정렬"
-categories: 자료구조
-tags: 자료구조, 정렬
+categories: Data-Structure
+tags: [DataStructure, Sort, 자료구조, 정렬]
 ---
 
 # &#91;C언어로 쉽게 풀어쓴 자료구조&#93; Chapter 12. 정렬

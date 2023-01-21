@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[코틀린 쿡북] 8장 코틀린 대리자"
 categories: Kotlin
-tags: 코틀린_스터디
+tags: [Kotlin, 코틀린]
 ---
 
 ## Chapter 8, 코틀린 대리자

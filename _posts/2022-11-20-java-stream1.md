@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[Java] Stream 정리 - 소개 및 스트림 생성"
 categories: Java
-tags: Java, 자바, 자바8, 스트림
+tags: [Java, 자바, 자바8, 스트림]
 ---
 
 ## 0. 들어가기에 앞서..

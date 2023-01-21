@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[Java] 날짜와 시간 정리 - LocalDate, LocalTime, Instant, Duration, Period"
 categories: Java
-tags: Java, 자바, 자바8
+tags: [Java, 자바, 자바8]
 ---
 
 ## 0. 들어가기에 앞서..

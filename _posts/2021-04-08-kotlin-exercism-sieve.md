@@ -2,7 +2,7 @@
 layout: post
 title: "[Kotlin] Exercism의 Sieve 문제 설명/풀이"
 categories: Kotlin
-tags: 코틀린_Exercism
+tags: [Kotlin, 코틀린, Exercism]
 ---
 
 ## Exercism 문제: Sieve

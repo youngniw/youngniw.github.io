@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[알고리즘] 해시 테이블 정리"
-categories: 알고리즘
-tags: 알고리즘, Algorithm, 해시테이블
+categories: Algorithm
+tags: [Algorithm, HashTable, 알고리즘, 해시테이블]
 ---
 
 ## 0. 들어가기에 앞서..

@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[코틀린 쿡북] 4장~5.3장"
 categories: Kotlin
-tags: 코틀린_스터디
+tags: [Kotlin, 코틀린]
 ---
 
 ## Chapter 4, 함수형 프로그래밍

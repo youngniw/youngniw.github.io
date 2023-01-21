@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[Spring] @Valid 정리"
 categories: Spring
-tags: 스프링, 스프링부트, Spring, SpringBoot
+tags: [Spring, SpringBoot, 스프링, 스프링부트]
 ---
 
 ## 0. 들어가기에 앞서..

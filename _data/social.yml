@@ -1,6 +1,8 @@
 - title: Instagram
   url: https://www.instagram.com/o._.silver/
   icon: fab fa-instagram
+  color: ac2bac
 - title: GitHub
   url: https://github.com/youngniw
   icon: fab fa-github
+  color: 333333

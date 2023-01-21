@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[Java] Stream 정리 - 데이터 수집 collect"
 categories: Java
-tags: Java, 자바, 자바8, 스트림
+tags: [Java, 자바, 자바8, 스트림]
 ---
 
 ## 0. 들어가기에 앞서..

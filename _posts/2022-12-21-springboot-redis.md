@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[SpringBoot] Redis 사용하기"
 categories: SpringBoot
-tags: SpringBoot, 스프링부트, Redis
+tags: [SpringBoot, Redis, NoSQL, 스프링부트]
 ---
 
 ## 0. 들어가기에 앞서..

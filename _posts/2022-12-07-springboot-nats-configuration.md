@@ -1,9 +1,8 @@
 ---
 layout: post
-toc: true
 title: "[SpringBoot] NATS 통신하기 - NATS 서버 설정"
 categories: SpringBoot
-tags: NATS, SpringBoot, Java, Docker
+tags: [NATS, Spring, SpringBoot, Docker, 스프링, 스프링부트]
 ---
 
 ## 0. 들어가기에 앞서..
