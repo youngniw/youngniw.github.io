@@ -220,7 +220,7 @@ list1.add(3);
 System.out.println(list1.toString());   // [1, 2, 3]
 System.out.println(list1.size());       // 3
 
-// clear()
+// get()
 System.out.println(list1.get(1));       // 2
 ```
 
