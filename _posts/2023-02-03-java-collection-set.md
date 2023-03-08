@@ -300,13 +300,10 @@ TreeSet<Integer> tSet3 = new TreeSet<>(Collections.reverseOrder());  // 내림�
       }
     });
     ```
-   
 
 <br/>
 <hr/>
 
 지금까지 컬렉션 중 `Set`에 대해 설명하였습니다.
-
-다음 포스트는 컬렉션 중 `Map`에 대해 설명할 예정입니다.
 
 감사합니다:)
