@@ -39,6 +39,8 @@ MapStruct: 자바 빈 타입 간의 매핑 구현을 매우 단순화하는 코�
 1. Mapstruct 라이브러리 설치에 
 2. 서로 다른 객체 모델을 매핑하기 위해서는 매퍼 인터페이스 정의
 
+<br/>
+
 <b>[ 라이브러리 ]</b>
 
 Mapstruct 라이브러리를 사용하기 위해 다음과 같이 build.gradle에 아래의 코드를 추가해야 한다.
@@ -50,6 +52,8 @@ dependencies {
   annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 }
 ```
+
+<br/>
 
 <b>[ 매퍼 인터페이스 정의 ]</b>
 
@@ -76,6 +80,8 @@ public interface PostMapper {
 
 하나의 인터페이스에 여러 매핑 방법 정의 가능하며, 모든 구현은 MapStruct에 의해 생성된다. 
 따라서 매퍼 인터페이스를 기반으로 클라이언트는 매우 쉽고 형식이 안전한 방식으로 객체 매핑을 수행 가능하다.
+
+<br/>
 
 <b>[ 예시 코드 ]</b>
 
@@ -160,63 +166,69 @@ public void mappingPostToDto() {
   
   예외로, 다음의 코드와 같이 하나의 매퍼의 형식(틀)을 하나로 통일시켜 상속받아 객체 매퍼를 정의할 수 있다.
 
-> EntityMapper.java
-> ```java
-> public interface EntityMapper<Dto, Entity> {
->	Entity toEntity(Dto dto);
->
->	Dto toDto(Entity entity);
->
->	List<Entity> toEntity(List<Dto> dtoList);
->
->	List<Dto> toDto(List<Entity> entityList);
->
->	@Named("partialUpdate")
->	@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
->	void partialUpdate(@MappingTarget Entity entity, Dto dto);
-> ```
->
-> UserMapper.java (이후의 실제 객체 매퍼 인터페이스 정의)
-> ```java
-> @Mapper(componentModel = "spring")
-> public interface UserMapper extends EntityMapper<UserDto, User> {
->
->	  @Mapping(target = "createdDate", ignore = true)
->	  @Mapping(target = "updatedDate", ignore = true)
->	  @Mapping(target = "loginId", ignore = true)
->	  @Mapping(target = "loginPw", ignore = true)
->	  User toEntity(UserDto userDto);
->
->	  @Mapping(target = "isCreatedToday", expression = "java(user.getCreatedDate().toLocalDate().isEqual(java.time.LocalDate.now()))")
->	  UserDto toDto(User user);
->
->	  @Named("partialUpdate")
->	  @Mapping(target = "uid", ignore = true)
->	  @Mapping(target = "createdDate", ignore = true)
->	  @Mapping(target = "updatedDate", ignore = true)
->	  @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
->	  void partialUpdate(@MappingTarget User entity, UserDto dto);
->
->	  default User fromIdx(Long idx) {
->		  if (idx == null) {
->			  return null;
->		  }
->		  return User.builder()
->			  .uid(idx)
->			  .build();
->	  }
-> }
-> ```
->  - User 엔티티 클래스와 UserDto 클래스 간의 변환을 위한 설정
->  - 위의 코드에서 사용하는 어노테이션 @Mapping, @Named에 대한 설명은 아래에서 확인할 수 있다.
->
-> [ 실제 서비스에서의 사용 예시 ]
-> ```java
-> UserDto userDto = userMapper.toDto(user);
-> List<UserDto> userDto = userMapper.toDto(userList);
-> ```
-> - UserMapper 인터페이스를 통해 자동으로 mapstruct에 의해 만들어진 구현체를 활용하여 실제 구현된 메서드를 호출
-> - 2줄의 코드 모두 User 타입의 객체를 찾아 해당 객체를 UserDto로 변환한 값 반환
+- EntityMapper.java
+
+  ```java
+  public interface EntityMapper<Dto, Entity> {
+    Entity toEntity(Dto dto);
+
+    Dto toDto(Entity entity);
+
+    List<Entity> toEntity(List<Dto> dtoList);
+
+    List<Dto> toDto(List<Entity> entityList);
+
+    @Named("partialUpdate")
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void partialUpdate(@MappingTarget Entity entity, Dto dto);
+  }
+  ```
+
+- UserMapper.java (이후의 실제 객체 매퍼 인터페이스 정의)
+
+  ```java
+  @Mapper(componentModel = "spring")
+  public interface UserMapper extends EntityMapper<UserDto, User> {
+    @Mapping(target = "createdDate", ignore = true)
+    @Mapping(target = "updatedDate", ignore = true)
+    @Mapping(target = "loginId", ignore = true)
+    @Mapping(target = "loginPw", ignore = true)
+    User toEntity(UserDto userDto);
+
+    @Mapping(target = "isCreatedToday", expression = "java(user.getCreatedDate().toLocalDate().isEqual(java.time.LocalDate.now()))")
+    UserDto toDto(User user);
+
+    @Named("partialUpdate")
+    @Mapping(target = "uid", ignore = true)
+    @Mapping(target = "createdDate", ignore = true)
+    @Mapping(target = "updatedDate", ignore = true)
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void partialUpdate(@MappingTarget User entity, UserDto dto);
+
+    default User fromIdx(Long idx) {
+      if (idx == null) {
+        return null;
+      }
+      return User.builder()
+        .uid(idx)
+        .build();
+    }
+  }
+  ```
+  - User 엔티티 클래스와 UserDto 클래스 간의 변환을 위한 설정
+  - 위의 코드에서 사용하는 어노테이션 @Mapping, @Named에 대한 설명은 아래에서 확인할 수 있다.
+
+<br/>
+
+- [ 실제 서비스에서의 사용 예시 ]
+
+  ```java
+  UserDto userDto = userMapper.toDto(user);
+  List<UserDto> userDto = userMapper.toDto(userList);
+  ```
+
+  - UserMapper 인터페이스를 통해 자동으로 mapstruct에 의해 만들어진 구현체를 활용하여 실제 구현된 메서드를 호출
+  - 2줄의 코드 모두 User 타입의 객체를 찾아 해당 객체를 UserDto로 변환한 값 반환
 
 <br/>
 <hr/>
@@ -224,14 +236,16 @@ public void mappingPostToDto() {
 ### 2.2 @Mapping
 
 - 변환하려는 객체와 필드 명이 일치하지 않는 경우에는 @Mapping 어노테이션을 이용해 수동으로 매핑
-- 예제 코드
 
+  [ 예시 코드 ]
+  
   ```java
   @Mapping(source = "userId", target = "writerId")
   ```
 
 - 만약 하나의 객체인 필드를 나눠서 저장하려고 할 때에는 `변수명.필드명`을 통해 변환 가능
-- 예제 코드
+
+  [ 예시 코드 ]
 
   ```java
   @Mapping(source = "user.name", target = "writerName")
@@ -260,6 +274,8 @@ public void mappingPostToDto() {
 |defaultValue|source 속성 값이 null인 경우, 제공된 기본 String 값 설정|
 |nullValueCheckStrategy|Bean 매핑의 source 속성 값에 대한 null 검사를 포함할 시기 결정|
 |nullValuePropertyMappingStrategy|source 속성 값이 null이거나 존재하지 않을 때 적용할 전략<br/>(기본값: `NullValuePropertyMappingStrategy.SET_TO_NULL`)|
+
+<br/>
 
 <b>[ 예시 코드 ]</b>
   
@@ -299,6 +315,8 @@ public void mappingPostToDto() {
 - target 유형의 새 인스턴스를 생성하지 않는 매핑을 하는즉, 유사한 유형의 기존 인스턴스를 업데이트
 - 이와 같은 경우의 매핑은 target 객체에 대한 매개변수를 추가하고 target  객체 매개변수를 @MappingTarget로 표시함
 - 즉, 값의 변경을 원하는 객체에 @MappingTarget 어노테이션을 표기함
+
+<br/>
 
 <b>[ 예시 코드 ]</b>
   
